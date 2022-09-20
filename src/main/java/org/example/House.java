@@ -11,9 +11,9 @@ import java.util.Date;
 public class House {
     private String address;
     private String id;
-    private String length;
-    private String width;
-    private String height;
+    private double length;
+    private double width;
+    private double height;
     private String appointment;
     private String condition;
 
@@ -27,6 +27,14 @@ public class House {
         address = reader.readLine();
         System.out.println("Введите id объекта");
         id = reader.readLine();
+        System.out.println("Введите длину объекта:");
+        length = Double.parseDouble(reader.readLine());
+        System.out.println("Введите ширину объекта:");
+        width = Double.parseDouble(reader.readLine());
+        System.out.println("Введите высоту объекта:");
+        height = Double.parseDouble(reader.readLine());
+        System.out.println("Введите техн сост:");
+        condition = reader.readLine();
     }
 
     public String getAddress() {
@@ -45,27 +53,27 @@ public class House {
         this.id = id;
     }
 
-    public String getLength() {
+    public double getLength() {
         return length;
     }
 
-    public void setLength(String length) {
+    public void setLength(double length) {
         this.length = length;
     }
 
-    public String getWidth() {
+    public double getWidth() {
         return width;
     }
 
-    public void setWidth(String width) {
+    public void setWidth(double width) {
         this.width = width;
     }
 
-    public String getHeight() {
+    public double getHeight() {
         return height;
     }
 
-    public void setHeight(String height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 

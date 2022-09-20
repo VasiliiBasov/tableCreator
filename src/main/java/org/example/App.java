@@ -20,7 +20,6 @@ public class App {
         this.out = new FileOutputStream(new File(path));
         this.path = path;
     }
-
     private static void test1() throws InvalidFormatException, IOException {
         App app = new App("C:/Users/vasek/OneDrive/Desktop/TableCreator/hello.docx");
         House house1 = new House();
@@ -29,10 +28,19 @@ public class App {
         CreateParagraph paragraph1 = new CreateParagraph(document, app.path);
         paragraph1.createParagraph("Таблица 3." + app.getTableId() + " – Конструктивные данные по результатам обследования сооружения по адресу: " + house1.getAddress() + " (ID объекта " + house1.getId() + ")");
 
-        CreateTable table1 = new CreateTable(document, app.path);
-        table1.createTable();
+        CreateTable table1 = new CreateTable(document, app.path, house1);
+        table1.createTable("src/main/java/resources/Table.yaml");
 
-        paragraph1.insertParagraph("Паспорт здания: " + house1.getAddress() + " (ID объекта " + house1.getId() + ")");
+        paragraph1.createParagraph("Паспорт здания: " + house1.getAddress() + " (ID объекта " + house1.getId() + ")", true, true);
+
+        table1.createTable("src/main/java/resources/Passport.yaml");
+
+        paragraph1.createParagraph("По результатам проведенного обследования несущих и ограждающих конструкций здания по адресу: " + house1.getAddress()
+                + " (ID объекта " + house1.getId() + ")"
+                + ", техническое состояние сооружения – " + house1.getCondition()
+                + ", обнаружены дефекты, влияющие на несущую способность конструкций, а также на их долговечность и на эксплуатационную надежность."
+                + " Обнаруженные дефекты возникли по причине отсутствия своевременных ремонтно-восстановительных работ конструкций здания и дальнейшего воздействия знакопеременных температур.", false, true);
+
 
         document.write(out);
         out.close();

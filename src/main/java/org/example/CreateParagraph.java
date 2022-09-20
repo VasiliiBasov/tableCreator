@@ -20,25 +20,39 @@ public class CreateParagraph {
         r1.setText(text);
         r1.setFontFamily("Times New Roman");
 
-        System.out.println("paragraph written successully");
+        System.out.println("paragraph written successfully");
     }
-
-    public void insertParagraph(String text) throws IOException {
+    public void createParagraph(String text, Boolean center) throws IOException {
         // set font
         XWPFParagraph p1 = document.createParagraph();
-        p1.setAlignment(ParagraphAlignment.CENTER);
+        if (center) p1.setAlignment(ParagraphAlignment.CENTER);
 
         // Set Text to Bold and font size to 22 for first paragraph
         XWPFRun r1 = p1.createRun();
-        r1.addBreak();
-        r1.addBreak();
         r1.setBold(true);
         r1.setItalic(true);
         r1.setFontSize(13);
         r1.setText(text);
         r1.setFontFamily("Times New Roman");
 
-        System.out.println("paragraph written successully");
+        System.out.println("paragraph written successfully");
+    }
+    public void createParagraph(String text, Boolean center, Boolean addBreak) throws IOException {
+        // set font
+        XWPFParagraph p1 = document.createParagraph();
+        if (center) p1.setAlignment(ParagraphAlignment.CENTER);
+        if (addBreak) p1.setPageBreak(true);
+
+        // Set Text to Bold and font size to 22 for first paragraph
+        XWPFRun r1 = p1.createRun();
+        if (!center) r1.addTab();
+        r1.setBold(true);
+        r1.setItalic(true);
+        r1.setFontSize(13);
+        r1.setText(text);
+        r1.setFontFamily("Times New Roman");
+
+        System.out.println("paragraph written successfully");
     }
 
     public CreateParagraph(XWPFDocument document, String path) throws IOException {
