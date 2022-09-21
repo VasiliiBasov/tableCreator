@@ -21,6 +21,7 @@ public class CreateParagraph {
         r1.setFontFamily("Times New Roman");
 
         System.out.println("paragraph written successfully");
+        //App.clientWindow.write("paragraph written successfully");
     }
     public void createParagraph(String text, Boolean center) throws IOException {
         // set font
@@ -36,16 +37,21 @@ public class CreateParagraph {
         r1.setFontFamily("Times New Roman");
 
         System.out.println("paragraph written successfully");
+        //App.clientWindow.write("paragraph written successfully");
     }
-    public void createParagraph(String text, Boolean center, Boolean addBreak) throws IOException {
+    public void createParagraph(String text, Boolean center, Boolean addBreakPage) throws IOException {
         // set font
         XWPFParagraph p1 = document.createParagraph();
         if (center) p1.setAlignment(ParagraphAlignment.CENTER);
-        if (addBreak) p1.setPageBreak(true);
+        if (addBreakPage) p1.setPageBreak(true);
 
         // Set Text to Bold and font size to 22 for first paragraph
         XWPFRun r1 = p1.createRun();
         if (!center) r1.addTab();
+        if (!addBreakPage) {
+            r1.addBreak();
+            r1.addBreak();
+        }
         r1.setBold(true);
         r1.setItalic(true);
         r1.setFontSize(13);
@@ -53,10 +59,27 @@ public class CreateParagraph {
         r1.setFontFamily("Times New Roman");
 
         System.out.println("paragraph written successfully");
+        //App.clientWindow.write("paragraph written successfully");
     }
 
     public CreateParagraph(XWPFDocument document, String path) throws IOException {
         this.document = document;
         this.out = new FileOutputStream(new File(path));
+    }
+
+    public XWPFDocument getDocument() {
+        return document;
+    }
+
+    public void setDocument(XWPFDocument document) {
+        this.document = document;
+    }
+
+    public FileOutputStream getOut() {
+        return out;
+    }
+
+    public void setOut(FileOutputStream out) {
+        this.out = out;
     }
 }

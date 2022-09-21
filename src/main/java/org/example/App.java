@@ -11,35 +11,36 @@ public class App {
     private static String path;
     private static int tableId = 0;
 
-
-    public static void main(String[] args) throws IOException, InvalidFormatException {
-        test1();
-    }
-
     public App(String path) throws IOException {
         this.out = new FileOutputStream(new File(path));
         this.path = path;
     }
-    private static void test1() throws InvalidFormatException, IOException {
-        App app = new App("C:/Users/vasek/OneDrive/Desktop/TableCreator/hello.docx");
+    public static void test1() throws InvalidFormatException, IOException {
+        String currentPath = new java.io.File(".").getCanonicalPath();
+        App app = new App(currentPath + "/Tables.docx");
         House house1 = new House();
 
 
-        CreateParagraph paragraph1 = new CreateParagraph(document, app.path);
+        CreateParagraph paragraph1 = new CreateParagraph(document, path);
         paragraph1.createParagraph("Таблица 3." + app.getTableId() + " – Конструктивные данные по результатам обследования сооружения по адресу: " + house1.getAddress() + " (ID объекта " + house1.getId() + ")");
 
-        CreateTable table1 = new CreateTable(document, app.path, house1);
-        table1.createTable("src/main/java/resources/Table.yaml");
+        CreateTable table1 = new CreateTable(document, path, house1);
+        table1.createTable(currentPath + "/Table.yaml");
 
         paragraph1.createParagraph("Паспорт здания: " + house1.getAddress() + " (ID объекта " + house1.getId() + ")", true, true);
 
-        table1.createTable("src/main/java/resources/Passport.yaml");
+        table1.createTable(currentPath + "/Passport.yaml");
+
+        paragraph1.createParagraph("Ведомость дефектов:", true, true);
+
+        table1.createStatement(currentPath + "/Statement.yaml");
+        //C:/Users/HP/Desktop/Table/
 
         paragraph1.createParagraph("По результатам проведенного обследования несущих и ограждающих конструкций здания по адресу: " + house1.getAddress()
                 + " (ID объекта " + house1.getId() + ")"
                 + ", техническое состояние сооружения – " + house1.getCondition()
                 + ", обнаружены дефекты, влияющие на несущую способность конструкций, а также на их долговечность и на эксплуатационную надежность."
-                + " Обнаруженные дефекты возникли по причине отсутствия своевременных ремонтно-восстановительных работ конструкций здания и дальнейшего воздействия знакопеременных температур.", false, true);
+                + " Обнаруженные дефекты возникли по причине отсутствия своевременных ремонтно-восстановительных работ конструкций здания и дальнейшего воздействия знакопеременных температур.", false, false);
 
 
         document.write(out);

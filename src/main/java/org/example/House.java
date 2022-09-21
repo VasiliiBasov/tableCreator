@@ -22,19 +22,29 @@ public class House {
 
     public House() throws IOException {
         setDate();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Введите адрес объекта");
-        address = reader.readLine();
-        System.out.println("Введите id объекта");
-        id = reader.readLine();
-        System.out.println("Введите длину объекта:");
-        length = Double.parseDouble(reader.readLine());
-        System.out.println("Введите ширину объекта:");
-        width = Double.parseDouble(reader.readLine());
-        System.out.println("Введите высоту объекта:");
-        height = Double.parseDouble(reader.readLine());
-        System.out.println("Введите техн сост:");
-        condition = reader.readLine();
+//        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//        System.out.println("Введите адрес объекта");
+//        address = reader.readLine();
+//        System.out.println("Введите id объекта");
+//        id = reader.readLine();
+//        System.out.println("Введите длину объекта:");
+//        length = Double.parseDouble(reader.readLine());
+//        System.out.println("Введите ширину объекта:");
+//        width = Double.parseDouble(reader.readLine());
+//        System.out.println("Введите высоту объекта:");
+//        height = Double.parseDouble(reader.readLine());
+//        System.out.println("Введите назначение:");
+//        appointment = reader.readLine();
+//        System.out.println("Введите техн сост:");
+//        condition = reader.readLine();
+
+        address = ClientWindow.answer.get(0);
+        id = ClientWindow.answer.get(1);
+        length = Double.parseDouble(ClientWindow.answer.get(2));
+        width = Double.parseDouble(ClientWindow.answer.get(3));
+        height = Double.parseDouble(ClientWindow.answer.get(4));
+        appointment = ClientWindow.answer.get(5);
+        condition = ClientWindow.answer.get(6);
     }
 
     public String getAddress() {

@@ -64,9 +64,10 @@ public class CreateTable {
         });
 
         System.out.println("table written successully");
+        //App.clientWindow.write("table written successully");
     }
 
-    public void createStatement(String path) throws FileNotFoundException {
+    public void createStatement(String path) throws IOException {
         table = document.createTable();
         CTTblWidth widthRepr = table.getCTTbl().getTblPr().addNewTblW();
         widthRepr.setType(STTblWidth.DXA);
@@ -90,19 +91,23 @@ public class CreateTable {
         System.out.println(data);
 
         Set<String> set = data.keySet();
-        var ref = new Object() {
-            int i = 0;
-        };
+        final int[] i = {0};
+        final int[] j = {0};
+        tableRow = table.createRow();
         set.forEach(s -> {
-            tableRow = table.createRow();
-            fillParagraph(tableRow.getCell(ref.i).getParagraphArray(0), s);
-            ref.i++;
-            fillParagraph(tableRow.getCell(ref.i).getParagraphArray(0), data.get(s));
-            ref.i++;
-            if (ref.i == 4) ref.i = 0;
+            fillParagraph(tableRow.getCell(i[0]).getParagraphArray(0), s);
+            i[0]++;
+            fillParagraph(tableRow.getCell(i[0]).getParagraphArray(0), data.get(s));
+            i[0]++;
+            if (i[0] == 4 && j[0] < 1) {
+                i[0] = 0;
+                tableRow = table.createRow();
+                j[0]++;
+            }
         });
 
         System.out.println("statement written successfully");
+        //App.clientWindow.write("statement written successfully");
     }
 
     public CreateTable(XWPFDocument document, String path, House house) throws FileNotFoundException {
@@ -115,10 +120,35 @@ public class CreateTable {
         paragraph.setSpacingBefore(0);
         paragraph.setSpacingAfter(0);
         StringBuilder stringBuilder = new StringBuilder(text);
-        if (text.equals("В плане имеет Прямоугольную форму. Габариты –")) {
-            String formattedDouble = new DecimalFormat("#0.00").format(house.getLength()*house.getWidth());
-            stringBuilder.append(house.getLength() + " х " + house.getWidth() + "м." + " Общая площадь: " + formattedDouble + "м^2.");
-
+//        if (text.equals("В плане имеет Прямоугольную форму. Габариты –")) {
+//            String formattedDouble = new DecimalFormat("#0.00").format(house.getLength()*house.getWidth());
+//            stringBuilder.append(house.getLength() + " х " + house.getWidth() + "м." + " Общая площадь: " + formattedDouble + "м^2.");
+//        }
+        if (text.contains("date")) {
+            System.out.println(house.getDate());
+            text = text.replaceFirst("date", house.getDate());
+            stringBuilder = new StringBuilder(text);
+        }if (text.contains("width")) {
+            text = text.replaceFirst("width",  String.valueOf(house.getWidth()));
+            stringBuilder = new StringBuilder(text);
+        }if (text.contains("height")) {
+            text = text.replaceFirst("height",  String.valueOf(house.getHeight()));
+            stringBuilder = new StringBuilder(text);
+        }if (text.contains("length")) {
+            text = text.replaceFirst("length",  String.valueOf(house.getLength()));
+            stringBuilder = new StringBuilder(text);
+        }if (text.contains("appointment")) {
+            text = text.replaceFirst("appointment",  String.valueOf(house.getAppointment()));
+            stringBuilder = new StringBuilder(text);
+        }if (text.contains("condition")) {
+            text = text.replaceFirst("condition",  String.valueOf(house.getCondition()));
+            stringBuilder = new StringBuilder(text);
+        }if (text.contains("volume")) {
+            text = text.replaceFirst("volume",  String.valueOf(new DecimalFormat("#0.00").format(house.getWidth()*house.getLength()*house.getHeight())));
+            stringBuilder = new StringBuilder(text);
+        }if (text.contains("square")) {
+            text = text.replaceFirst("square",  String.valueOf(new DecimalFormat("#0.00").format(house.getLength()*house.getWidth())));
+            stringBuilder = new StringBuilder(text);
         }
         XWPFRun run = paragraph.createRun();
         run.setFontSize(13);
