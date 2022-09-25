@@ -10,17 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9bbb54c9-2bd0-46a5-b20b-cfa95ea81176" name="Changes" comment="Work with console only">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/ProgramTableCreator_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/question.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CreateParagraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CreateParagraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CreateTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CreateTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/House.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resources/Passport.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Passport.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resources/Statement.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Statement.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resources/Table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Table.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Passport.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Passport.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Statement.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Statement.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Table.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +60,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/",
+    "last_opened_file_path": "C:/Users/vasek/IdeaProjects/ProgramTableCreator/src/main/java/org/example",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -74,7 +72,11 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vasek\IdeaProjects\ProgramTableCreator\src\main\java\org\example" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\vasek\IdeaProjects\ProgramTableCreator" />
       <recent name="C:\Users\vasek\IdeaProjects\ProgramTableCreator\src\main\resources" />
       <recent name="C:\Users\vasek\IdeaProjects\ProgramTableCreator\src\main\java\org\example" />
       <recent name="C:\Users\vasek\IdeaProjects\ProgramTableCreator\src\main\java" />
@@ -138,7 +140,9 @@
       <workItem from="1663713134678" duration="332000" />
       <workItem from="1663713481965" duration="376000" />
       <workItem from="1663713886837" duration="615000" />
-      <workItem from="1663746702928" duration="8957000" />
+      <workItem from="1663746702928" duration="9289000" />
+      <workItem from="1663787348279" duration="1489000" />
+      <workItem from="1664044840155" duration="28679000" />
     </task>
     <task id="LOCAL-00001" summary="Таблицы и параграфы создаются">
       <created>1663655768753</created>
@@ -161,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663668341856</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Work with console only">
+      <created>1663765003640</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1663765003640</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

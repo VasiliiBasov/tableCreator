@@ -1,12 +1,10 @@
 package org.example;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 public class House {
     private String address;
@@ -16,35 +14,38 @@ public class House {
     private double height;
     private String appointment;
     private String condition;
+    private int type;
 
     private String date;
 
 
-    public House() throws IOException {
+    public House() throws IOException, DocumentNotCreated {
         setDate();
-//        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-//        System.out.println("Введите адрес объекта");
-//        address = reader.readLine();
-//        System.out.println("Введите id объекта");
-//        id = reader.readLine();
-//        System.out.println("Введите длину объекта:");
-//        length = Double.parseDouble(reader.readLine());
-//        System.out.println("Введите ширину объекта:");
-//        width = Double.parseDouble(reader.readLine());
-//        System.out.println("Введите высоту объекта:");
-//        height = Double.parseDouble(reader.readLine());
-//        System.out.println("Введите назначение:");
-//        appointment = reader.readLine();
-//        System.out.println("Введите техн сост:");
-//        condition = reader.readLine();
-
-        address = ClientWindow.answer.get(0);
-        id = ClientWindow.answer.get(1);
-        length = Double.parseDouble(ClientWindow.answer.get(2));
-        width = Double.parseDouble(ClientWindow.answer.get(3));
-        height = Double.parseDouble(ClientWindow.answer.get(4));
-        appointment = ClientWindow.answer.get(5);
-        condition = ClientWindow.answer.get(6);
+        ArrayList<String> ans = ClientWindow.answer;
+        for (int i = 0; i < ClientWindow.answer.size(); i++) {
+            if (String.valueOf(ans.get(i)).contains(",")) {
+                ans.set(i, ans.get(i).replace(",", "."));
+            }
+        }
+        try {
+            address = ClientWindow.answer.get(0);
+            id = ClientWindow.answer.get(1);
+            length = Double.parseDouble(ClientWindow.answer.get(2));
+            width = Double.parseDouble(ClientWindow.answer.get(3));
+            height = Double.parseDouble(ClientWindow.answer.get(4));
+            appointment = ClientWindow.answer.get(5);
+            condition = ClientWindow.answer.get(6);
+            if (Integer.parseInt(ClientWindow.answer.get(6)) == 1) {
+                condition = "работоспособное";
+            } else if (Integer.parseInt(ClientWindow.answer.get(6)) == 2) {
+                condition = "ограниченно-работоспособное";
+            }
+            type = Integer.parseInt(ClientWindow.answer.get(7));
+        }
+        catch (Exception e) {
+            System.out.println(e);
+            throw new DocumentNotCreated("hjgfhgf");
+        }
     }
 
     public String getAddress() {
@@ -110,8 +111,18 @@ public class House {
     public void setDate() {
         DateFormat df = new SimpleDateFormat("yyyy");
         Calendar calendar = Calendar.getInstance();
-        String[] monthNames = { "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" };
+        String[] monthNames = {"Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"};
         String month = monthNames[calendar.get(Calendar.MONTH)];
         date = month + " " + df.format(calendar.getTime()) + " г.";
+    }
+
+    public String getType() {
+        return "\\" + String.valueOf(type) + ".yaml";
+    }
+    public class DocumentNotCreated extends Exception {
+
+        public DocumentNotCreated (String message) {
+            super(message);
+        }
     }
 }
