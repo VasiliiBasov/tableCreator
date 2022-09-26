@@ -83,6 +83,11 @@ public class ClientWindow extends JFrame implements ActionListener {
         }
         String msg = fieldInput.getText();
         if (msg.equals("")) return;
+        if (msg.equals("restart")) {
+            fieldInput.setText(null);
+            restart("Чтобы добавить новое здание нажмите enter\n", true);
+            return;
+        }
         fieldInput.setText(null);
         try {
             if (searchEr(i, msg)) return;
@@ -126,6 +131,17 @@ public class ClientWindow extends JFrame implements ActionListener {
         
     }
 
+    public static void restart(String er, boolean notEr) {
+        if (notEr) {
+            log.append(er);
+            isNew = true;
+        }
+        else {
+            ClientWindow.log.append("Ошибка " + er + "\n" +
+                    "Чтобы добавить новое здание нажмите enter\n");
+            isNew = true;
+        }
+    }
     public static void restart(String er) {
         ClientWindow.log.append("Ошибка " + er + "\n" +
                 "Чтобы добавить новое здание нажмите enter\n");
