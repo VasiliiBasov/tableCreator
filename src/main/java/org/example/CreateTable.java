@@ -8,6 +8,7 @@ import org.yaml.snakeyaml.Yaml;
 
 import java.io.*;
 import java.math.BigInteger;
+import java.nio.file.Files;
 import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.Set;
@@ -28,7 +29,7 @@ public class CreateTable {
 
     private static XWPFTable table;
 
-    public void createTable(String path) throws IOException {
+    public void createTable(String path) throws IOException, House.DocumentNotCreated {
 
         table = document.createTable();
         CTTblWidth widthRepr = table.getCTTbl().getTblPr().addNewTblW();
@@ -38,7 +39,7 @@ public class CreateTable {
 
         XWPFTableRow tableRowOne = table.getRow(0);
         if (flag) {
-            fillParagraph(tableRowOne.getCell(0).getParagraphArray(0), "Наименование харрактеристики");
+            fillParagraph(tableRowOne.getCell(0).getParagraphArray(0), "Наименование характеристики");
             fillParagraph(tableRowOne.addNewTableCell().getParagraphArray(0), "Описание");
             tableRowOne.getCell(0).setColor("A9A9A9");
             tableRowOne.getCell(1).setColor("A9A9A9");
@@ -59,14 +60,22 @@ public class CreateTable {
         Set<String> set = data.keySet();
         set.forEach(s -> {
             tableRow = table.createRow();
-            fillParagraph(tableRow.getCell(0).getParagraphArray(0), s);
-            fillParagraph(tableRow.getCell(1).getParagraphArray(0), String.valueOf(data.get(s)));
+            try {
+                fillParagraph(tableRow.getCell(0).getParagraphArray(0), s);
+            } catch (House.DocumentNotCreated e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                fillParagraph(tableRow.getCell(1).getParagraphArray(0), String.valueOf(data.get(s)));
+            } catch (House.DocumentNotCreated e) {
+                throw new RuntimeException(e);
+            }
         });
 
         System.out.println("table written successully");
     }
 
-    public void createStatement(String path) throws IOException {
+    public void createStatement(String path) throws IOException, House.DocumentNotCreated {
         table = document.createTable();
         CTTblWidth widthRepr = table.getCTTbl().getTblPr().addNewTblW();
         widthRepr.setType(STTblWidth.DXA);
@@ -84,7 +93,7 @@ public class CreateTable {
         }
 
         File file = new File(path);
-        InputStream inputStream = new FileInputStream(file);
+        InputStream inputStream = Files.newInputStream(file.toPath());
         Yaml yaml = new Yaml();
         Map<String, String> data = yaml.load(inputStream);
 
@@ -93,9 +102,17 @@ public class CreateTable {
         final int[] j = {0};
         tableRow = table.createRow();
         set.forEach(s -> {
-            fillParagraph(tableRow.getCell(i[0]).getParagraphArray(0), s);
+            try {
+                fillParagraph(tableRow.getCell(i[0]).getParagraphArray(0), s);
+            } catch (House.DocumentNotCreated e) {
+                throw new RuntimeException(e);
+            }
             i[0]++;
-            fillParagraph(tableRow.getCell(i[0]).getParagraphArray(0), data.get(s));
+            try {
+                fillParagraph(tableRow.getCell(i[0]).getParagraphArray(0), data.get(s));
+            } catch (House.DocumentNotCreated e) {
+                throw new RuntimeException(e);
+            }
             i[0]++;
             if (i[0] == 4 && j[0] < 1) {
                 i[0] = 0;
@@ -113,7 +130,7 @@ public class CreateTable {
         this.house = house;
     }
 
-    private void fillParagraph(XWPFParagraph paragraph, String text) {
+    private void fillParagraph(XWPFParagraph paragraph, String text) throws House.DocumentNotCreated {
         paragraph.setSpacingBefore(0);
         paragraph.setSpacingAfter(0);
         StringBuilder stringBuilder = new StringBuilder(text);
@@ -137,6 +154,10 @@ public class CreateTable {
             text = text.replaceFirst("appointment", String.valueOf(house.getAppointment()));
             stringBuilder = new StringBuilder(text);
         }
+        if (text.contains("roof")) {
+            text = text.replaceFirst("roof", String.valueOf(house.getRoof()));
+            stringBuilder = new StringBuilder(text);
+        }
         if (text.contains("volume")) {
             text = text.replaceFirst("volume", String.valueOf(new DecimalFormat("#0.00").format(house.getWidth() * house.getLength() * house.getHeight())).replaceAll("\\.", ","));
             stringBuilder = new StringBuilder(text);
@@ -147,6 +168,7 @@ public class CreateTable {
             stringBuilder = new StringBuilder(text);
             flagSquar = true;
         }
+
         if (text.contains("def")) {
             text = text.replaceAll("def", "-");
             stringBuilder = new StringBuilder(text);
@@ -187,14 +209,12 @@ public class CreateTable {
                         String textForLine = stringsOnNewLines[i];
                         if (i == stringsOnNewLines.length - 1) {
                             xwpfRun.setText(textForLine, 0);
-                            xwpfRun.addCarriageReturn();
                         } else {
                             paragraph.insertNewRun(i);
                             XWPFRun newRun = paragraph.getRuns().get(i);
                             CTRPr rPr = newRun.getCTR().isSetRPr() ? newRun.getCTR().getRPr() : newRun.getCTR().addNewRPr();
                             rPr.set(xwpfRun.getCTR().getRPr());
                             newRun.setText(textForLine);
-                            newRun.addCarriageReturn();
                             newRun.addBreak();//ADD THE NEW LINE
                         }
                     }

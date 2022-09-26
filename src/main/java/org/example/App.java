@@ -38,35 +38,38 @@ public class App {
 
         paragraph1.createParagraph("Паспорт здания: " + house1.getAddress() + " (ID объекта " + house1.getId() + ")", true, false);
 
-        table1.createTable(currentPath + "/Passport.yaml");
+        table1.createTable(currentPath + "/Passport_" + house1.getType(1) + ".yaml");
 
         if (Integer.parseInt(ClientWindow.answer.get(6)) == 2) {
 
             paragraph1.createParagraph("Ведомость дефектов:", true, false);
 
             table1.createStatement(currentPath + "/Statement.yaml");
+            paragraph1.createConclusion(house1, currentPath + "/conclusion.txt");
 
-            paragraph1.createParagraph("По результатам проведенного обследования несущих и " +
-                    "ограждающих конструкций здания по адресу: " + house1.getAddress()
-                    + " (ID объекта " + house1.getId() + ")"
-                    + ", техническое состояние сооружения – " + house1.getCondition()
-                    + ", обнаружены дефекты, влияющие на несущую способность конструкций, " +
-                    "а также на их долговечность и на эксплуатационную надежность."
-                    + " Обнаруженные дефекты возникли по причине отсутствия своевременных " +
-                    "ремонтно-восстановительных работ конструкций здания и дальнейшего воздействия " +
-                    "знакопеременных температур.", false, false);
+//            paragraph1.createParagraph("По результатам проведенного обследования несущих и " +
+//                    "ограждающих конструкций здания по адресу: " + house1.getAddress()
+//                    + " (ID объекта " + house1.getId() + ")"
+//                    + ", техническое состояние сооружения – " + house1.getCondition()
+//                    + ", обнаружены дефекты, влияющие на несущую способность конструкций, " +
+//                    "а также на их долговечность и на эксплуатационную надежность."
+//                    + " Обнаруженные дефекты возникли по причине отсутствия своевременных " +
+//                    "ремонтно-восстановительных работ конструкций здания и дальнейшего воздействия " +
+//                    "знакопеременных температур.", false, false);
         } else {
-            paragraph1.createParagraph("По результатам проведенного обследования несущих и ограждающих " +
-                    "конструкций здания по адресу: " + house1.getAddress()
-                    + " (ID объекта " + house1.getId() + ")"
-                    + ", техническое состояние сооружения – " + house1.getCondition()
-                    + "дефекты, влияющие на несущую способность конструкций, " +
-                    "а также на их долговечность и на эксплуатационную надежность не обнаружены.", false, false);
+            paragraph1.createConclusion(house1, currentPath + "/conclusion.txt");
+//            paragraph1.createParagraph("По результатам проведенного обследования несущих и ограждающих " +
+//                    "конструкций здания по адресу: " + house1.getAddress()
+//                    + " (ID объекта " + house1.getId() + ")"
+//                    + ", техническое состояние сооружения – " + house1.getCondition()
+//                    + ", дефекты, влияющие на несущую способность конструкций, " +
+//                    "а также на их долговечность и на эксплуатационную надежность не обнаружены.", false, false);
         }
         document.write(out);
         out.close();
 
     }
+
 
     public int getTableId() {
         tableId++;

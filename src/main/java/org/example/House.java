@@ -15,6 +15,7 @@ public class House {
     private String appointment;
     private String condition;
     private int type;
+    private String roof;
 
     private String date;
 
@@ -34,17 +35,17 @@ public class House {
             width = Double.parseDouble(ClientWindow.answer.get(3));
             height = Double.parseDouble(ClientWindow.answer.get(4));
             appointment = ClientWindow.answer.get(5);
-            condition = ClientWindow.answer.get(6);
-            if (Integer.parseInt(ClientWindow.answer.get(6)) == 1) {
+            roof = ClientWindow.answer.get(6);
+            if (Integer.parseInt(ClientWindow.answer.get(7)) == 1) {
                 condition = "работоспособное";
-            } else if (Integer.parseInt(ClientWindow.answer.get(6)) == 2) {
+            } else if (Integer.parseInt(ClientWindow.answer.get(7)) == 2) {
                 condition = "ограниченно-работоспособное";
             }
-            type = Integer.parseInt(ClientWindow.answer.get(7));
+            type = Integer.parseInt(ClientWindow.answer.get(8));
         }
         catch (Exception e) {
             System.out.println(e);
-            throw new DocumentNotCreated("hjgfhgf");
+            throw new DocumentNotCreated(e.getMessage());
         }
     }
 
@@ -117,8 +118,26 @@ public class House {
     }
 
     public String getType() {
-        return "\\" + String.valueOf(type) + ".yaml";
+        return "/" + String.valueOf(type) + ".yaml";
     }
+    public int getType(int i) {
+        return type;
+    }
+
+    public String getRoof() throws DocumentNotCreated {
+        if (roof.equals("1")) {
+            return "Односкатная";
+        }
+        if (roof.equals("2")) {
+            return "Двускатная";
+        }
+        else throw new DocumentNotCreated("Не правильный тип крыши");
+    }
+
+    public void setRoof(String roof) {
+        this.roof = roof;
+    }
+
     public class DocumentNotCreated extends Exception {
 
         public DocumentNotCreated (String message) {

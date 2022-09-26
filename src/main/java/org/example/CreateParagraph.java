@@ -3,10 +3,14 @@ package org.example;
 import org.apache.poi.xwpf.usermodel.*;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class CreateParagraph {
     private XWPFDocument document;
     private FileOutputStream out;
+    private final ArrayList<String> conclusion = new ArrayList<>();
 
     public void createParagraph(String text) throws IOException {
         // set font
@@ -64,6 +68,38 @@ public class CreateParagraph {
         this.document = document;
         this.out = new FileOutputStream(new File(path));
     }
+
+    public void createConclusion(House house, String path) throws IOException {
+        Files.lines(Paths.get(path)).forEach(conclusion::add);
+        int line = 0;
+        XWPFParagraph paragraph = document.createParagraph();
+        paragraph.createRun().addBreak();
+        paragraph.createRun().addTab();
+        if (house.getCondition().equals("ограниченно-работоспособное")) line = 4;
+        System.out.println(conclusion);
+        for (int i = 0; i < 4; i++) {
+            XWPFRun run = paragraph.createRun();
+            run.setFontSize(13);
+            run.setFontFamily("Times New Roman");
+            run.setText(conclusion.get(line) + " ");
+            if (i < 3) {
+                XWPFRun newrun = paragraph.createRun();
+                newrun.setFontSize(13);
+                newrun.setFontFamily("Times New Roman");
+                newrun.setBold(true);
+                newrun.setItalic(true);
+                if (i == 0) {
+                    newrun.setText(String.valueOf(house.getAddress()));
+                } else if (i == 1) {
+                    newrun.setText(String.valueOf(house.getId()));
+                } else {
+                    newrun.setText(String.valueOf(house.getCondition()));
+                }
+            }
+            line++;
+        }
+    }
+
 
     public XWPFDocument getDocument() {
         return document;
