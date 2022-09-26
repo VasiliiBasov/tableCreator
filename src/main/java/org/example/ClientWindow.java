@@ -7,7 +7,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -16,14 +15,10 @@ import static org.example.App.currentPath;
 
 public class ClientWindow extends JFrame implements ActionListener {
 
-    private static final String IP_ADDR = "localhost";
-    private static final int PORT = 8189;
     public static final int WIDTH = 600;
     public static final int HEIGHT = 400;
-    //private final BufferedReader in;
-    private final BufferedWriter out;
-    private static ArrayList<String> question = new ArrayList();
-    public static ArrayList<String> answer = new ArrayList();
+    private static final ArrayList<String> question = new ArrayList<>();
+    public static ArrayList<String> answer = new ArrayList<>();
     private static int i = 1;
     private static boolean isNew = false;
 
@@ -34,12 +29,7 @@ public class ClientWindow extends JFrame implements ActionListener {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new ClientWindow();
-            }
-        });
+        SwingUtilities.invokeLater(ClientWindow::new);
     }
 
     public static final JTextArea log = new JTextArea();
@@ -59,7 +49,7 @@ public class ClientWindow extends JFrame implements ActionListener {
         fieldInput.addActionListener(this);
         add(fieldInput, BorderLayout.SOUTH);
 
-        out = new BufferedWriter(new OutputStreamWriter(System.out, Charset.forName("UTF-8")));
+        //private final BufferedReader in;
 
 
         setVisible(true);
@@ -73,22 +63,10 @@ public class ClientWindow extends JFrame implements ActionListener {
 
         try {
             write();
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        } catch (InvalidFormatException ex) {
+        } catch (IOException | InvalidFormatException ex) {
             throw new RuntimeException(ex);
         }
 
-    }
-
-    public String read() {
-        String msg = fieldInput.getText();
-        if (msg.equals("")) {
-            log.append("Строка пуста");
-            read();
-        }
-        fieldInput.setText(null);
-        return msg;
     }
 
     public synchronized void write() throws IOException, InvalidFormatException {
@@ -132,7 +110,7 @@ public class ClientWindow extends JFrame implements ActionListener {
     }
 
     public static void readFile(String path) throws IOException {
-        Files.lines(Paths.get(path)).forEach(question::add);
+            Files.lines(Paths.get(path)).forEach(question::add);
         question.add("Выберите тип крыши: \n" +
                 "1 - Односкатная\n" +
                 "2 - Двускатная");
@@ -145,6 +123,7 @@ public class ClientWindow extends JFrame implements ActionListener {
                 "3 - Металл каркас\n" +
                 "4 - пеноблок\n" +
                 "5 - кирпич");
+        
     }
 
     public static void restart(String er) {
@@ -182,7 +161,6 @@ public class ClientWindow extends JFrame implements ActionListener {
             return true;
         }
         if ((i == 7 || i == 8) && (Integer.parseInt(msg) < 1 || Integer.parseInt(msg) > 2)) {
-            System.out.println(Integer.parseInt(msg));
             log.append("Ошибка! " + "Не верно выбран параметр - " + msg + ".\n");
             log.append(question.get(i-1) + "\r\n");
             return true;
