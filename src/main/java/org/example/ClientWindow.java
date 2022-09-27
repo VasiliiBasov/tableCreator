@@ -105,17 +105,15 @@ public class ClientWindow extends JFrame implements ActionListener {
                 isNew = true;
 
             }
-        }
-         catch (House.DocumentNotCreated documentNotCreated) {
+        } catch (House.DocumentNotCreated documentNotCreated) {
             restart(documentNotCreated.toString());
-        }
-         catch (IOException ex) {
+        } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
     }
 
     public static void readFile(String path) throws IOException {
-            Files.lines(Paths.get(path)).forEach(question::add);
+        Files.lines(Paths.get(path)).forEach(question::add);
         question.add("Выберите тип крыши: \n" +
                 "1 - Односкатная\n" +
                 "2 - Двускатная");
@@ -128,39 +126,46 @@ public class ClientWindow extends JFrame implements ActionListener {
                 "3 - Металл каркас\n" +
                 "4 - пеноблок\n" +
                 "5 - кирпич");
-        
+        question.add("Выберите световые проемы: \n" +
+                "1 - Отсутствует\n" +
+                "2 - Пвх двухкамерные окна, с стеклянным заполнением\n" +
+                "3 - Деревянные стеклопакеты");
+
+
     }
 
     public static void restart(String er, boolean notEr) {
         if (notEr) {
             log.append(er);
             isNew = true;
-        }
-        else {
+        } else {
             ClientWindow.log.append("Ошибка " + er + "\n" +
                     "Чтобы добавить новое здание нажмите enter\n");
             isNew = true;
         }
     }
+
     public static void restart(String er) {
         ClientWindow.log.append("Ошибка " + er + "\n" +
                 "Чтобы добавить новое здание нажмите enter\n");
         isNew = true;
     }
+
     public static boolean isNumeric(String str) {
         try {
             str = str.replaceAll(",", ".");
             Double.parseDouble(str);
             return true;
-        } catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
             return false;
         }
     }
+
     public static boolean isInteger(String str) {
         try {
             Integer.parseInt(str);
             return true;
-        } catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
             return false;
         }
     }
@@ -168,22 +173,27 @@ public class ClientWindow extends JFrame implements ActionListener {
     private boolean searchEr(int i, String msg) {
         if (i > 2 && !isNumeric(msg) && i != 6) {
             log.append("Ошибка! " + msg + " - не числовое значение.\n");
-            log.append(question.get(i-1) + "\r\n");
+            log.append(question.get(i - 1) + "\r\n");
             return true;
         }
         if (i > 6 && !isInteger(msg)) {
             log.append("Ошибка! " + msg + " - не целое число.\n");
-            log.append(question.get(i-1) + "\r\n");
+            log.append(question.get(i - 1) + "\r\n");
             return true;
         }
         if ((i == 7 || i == 8) && (Integer.parseInt(msg) < 1 || Integer.parseInt(msg) > 2)) {
             log.append("Ошибка! " + "Не верно выбран параметр - " + msg + ".\n");
-            log.append(question.get(i-1) + "\r\n");
+            log.append(question.get(i - 1) + "\r\n");
             return true;
         }
         if (i == 9 && (Integer.parseInt(msg) < 1 || Integer.parseInt(msg) > 5)) {
             log.append("Ошибка! " + "Не верно выбран параметр - " + msg + ".\n");
-            log.append(question.get(i-1) + "\r\n");
+            log.append(question.get(i - 1) + "\r\n");
+            return true;
+        }
+        if (i == 10 && (Integer.parseInt(msg) < 1 || Integer.parseInt(msg) > 3)) {
+            log.append("Ошибка! " + "Не верно выбран параметр - " + msg + ".\n");
+            log.append(question.get(i - 1) + "\r\n");
             return true;
         }
 

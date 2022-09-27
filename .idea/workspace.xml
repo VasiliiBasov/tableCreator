@@ -11,9 +11,15 @@
   <component name="ChangeListManager">
     <list default="true" id="9bbb54c9-2bd0-46a5-b20b-cfa95ea81176" name="Changes" comment="Work all">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/4.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/4.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/5.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tables.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Tables.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ProgramTableCreator_jar/ProgramTableCreator.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ClientWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ClientWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CreateTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CreateTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/House.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +146,8 @@
       <workItem from="1664044840155" duration="30542000" />
       <workItem from="1664098595944" duration="10328000" />
       <workItem from="1664194567937" duration="452000" />
-      <workItem from="1664221931318" duration="8463000" />
+      <workItem from="1664221931318" duration="9090000" />
+      <workItem from="1664288466864" duration="1296000" />
     </task>
     <task id="LOCAL-00001" summary="Таблицы и параграфы создаются">
       <created>1663655768753</created>
@@ -191,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664230049764</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Work all">
+      <created>1664231025587</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1664231025587</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -15,6 +15,7 @@ public class House {
     private String appointment;
     private String condition;
     private int type;
+    private int windows;
     private String roof;
 
     private String date;
@@ -42,6 +43,7 @@ public class House {
                 condition = "ограниченно-работоспособное";
             }
             type = Integer.parseInt(ClientWindow.answer.get(8));
+            windows = Integer.parseInt(ClientWindow.answer.get(9));
         }
         catch (Exception e) {
             System.out.println(e);
@@ -136,6 +138,23 @@ public class House {
 
     public void setRoof(String roof) {
         this.roof = roof;
+    }
+
+    public String getWindows() throws DocumentNotCreated {
+        if (windows == 1) {
+            return "Отсутствует";
+        }
+        if (windows == 2) {
+            return "Пвх двухкамерные окна, с стеклянным заполнением";
+        }
+        if (windows == 3) {
+            return "Деревянные стеклопакеты";
+        }
+        else throw new DocumentNotCreated("Не правильный тип проема");
+    }
+
+    public void setWindows(int windows) {
+        this.windows = windows;
     }
 
     public class DocumentNotCreated extends Exception {

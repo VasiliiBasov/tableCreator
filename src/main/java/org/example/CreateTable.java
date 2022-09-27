@@ -158,6 +158,10 @@ public class CreateTable {
             text = text.replaceFirst("roof", String.valueOf(house.getRoof()));
             stringBuilder = new StringBuilder(text);
         }
+        if (text.contains("windows")) {
+            text = text.replaceFirst("windows", String.valueOf(house.getWindows()));
+            stringBuilder = new StringBuilder(text);
+        }
         if (text.contains("volume")) {
             text = text.replaceFirst("volume", String.valueOf(new DecimalFormat("#0.00").format(house.getWidth() * house.getLength() * house.getHeight())).replaceAll("\\.", ","));
             stringBuilder = new StringBuilder(text);
