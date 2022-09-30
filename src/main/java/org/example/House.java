@@ -14,6 +14,7 @@ public class House {
     private double height;
     private String appointment;
     private String condition;
+    private boolean isWorking;
     private int type;
     private int windows;
     private String roof;
@@ -39,8 +40,10 @@ public class House {
             roof = ClientWindow.answer.get(6);
             if (Integer.parseInt(ClientWindow.answer.get(7)) == 1) {
                 condition = "работоспособное";
+                isWorking = true;
             } else if (Integer.parseInt(ClientWindow.answer.get(7)) == 2) {
                 condition = "ограниченно-работоспособное";
+                isWorking = false;
             }
             type = Integer.parseInt(ClientWindow.answer.get(8));
             windows = Integer.parseInt(ClientWindow.answer.get(9));
@@ -155,6 +158,14 @@ public class House {
 
     public void setWindows(int windows) {
         this.windows = windows;
+    }
+
+    public boolean isWorking() {
+        return isWorking;
+    }
+
+    public void setWorking(boolean working) {
+        isWorking = working;
     }
 
     public class DocumentNotCreated extends Exception {

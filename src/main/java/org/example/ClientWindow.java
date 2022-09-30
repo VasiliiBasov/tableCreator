@@ -20,6 +20,7 @@ public class ClientWindow extends JFrame implements ActionListener {
     private static final ArrayList<String> question = new ArrayList<>();
     public static ArrayList<String> answer = new ArrayList<>();
     private static int i = 1;
+    private static int houseCount = 0;
     private static boolean isNew = false;
 
     public static void main(String[] args) {
@@ -53,7 +54,7 @@ public class ClientWindow extends JFrame implements ActionListener {
 
 
         setVisible(true);
-        log.append(question.get(0) + "\r\n");
+        log.append("№ " + getHouseCount() + "\n" + question.get(0) + "\r\n");
 
 
     }
@@ -75,7 +76,7 @@ public class ClientWindow extends JFrame implements ActionListener {
                 i = 1;
                 isNew = false;
                 answer = new ArrayList<>();
-                log.append(question.get(0) + "\r\n");
+                log.append("№ " + getHouseCount() + "\n" + question.get(0) + "\r\n");
                 write();
             } else {
                 return;
@@ -101,7 +102,7 @@ public class ClientWindow extends JFrame implements ActionListener {
 //                log.replaceSelection("");
                 App.test1();
                 ClientWindow.log.append("Здание добавлено!\n" +
-                        "Чтобы добавить новое здание нажмите enter\n");
+                        "Чтобы добавить новое здание нажмите enter\n\n");
                 isNew = true;
 
             }
@@ -201,5 +202,12 @@ public class ClientWindow extends JFrame implements ActionListener {
 
     }
 
+    public static int getHouseCount() {
+        houseCount++;
+        return houseCount;
+    }
 
+    public static void setHouseCount(int houseCount) {
+        ClientWindow.houseCount = houseCount;
+    }
 }

@@ -11,12 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9bbb54c9-2bd0-46a5-b20b-cfa95ea81176" name="Changes" comment="Work all">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/1.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/2.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/3.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/4.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/4.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/5.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Statement.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Statement.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tables.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Tables.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ClientWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ClientWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CreateTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CreateTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/House.java" afterDir="false" />
@@ -147,7 +144,8 @@
       <workItem from="1664098595944" duration="10328000" />
       <workItem from="1664194567937" duration="452000" />
       <workItem from="1664221931318" duration="9090000" />
-      <workItem from="1664288466864" duration="1296000" />
+      <workItem from="1664288466864" duration="1964000" />
+      <workItem from="1664518434494" duration="3333000" />
     </task>
     <task id="LOCAL-00001" summary="Таблицы и параграфы создаются">
       <created>1663655768753</created>
@@ -205,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664231025587</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Work all">
+      <created>1664290433335</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1664290433335</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,5 +232,16 @@
     <MESSAGE value="Work with console only" />
     <MESSAGE value="Work all" />
     <option name="LAST_COMMIT_MESSAGE" value="Work all" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/CreateTable.java</url>
+          <line>157</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

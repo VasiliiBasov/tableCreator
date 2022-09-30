@@ -31,16 +31,16 @@ public class App {
 
 
         CreateParagraph paragraph1 = new CreateParagraph(document, path);
-        paragraph1.createParagraph("Таблица 3." + app.getTableId() + " – Конструктивные данные по результатам обследования сооружения по адресу: " + house1.getAddress() + " (ID объекта " + house1.getId() + ")");
+        paragraph1.createParagraph("Таблица 3." + app.getTableId() + " – Конструктивные данные по результатам обследования сооружения по адресу: " + house1.getAddress() + " (ID объекта " + house1.getId() + ")", false, true);
 
         CreateTable table1 = new CreateTable(document, path, house1);
         table1.createTable(currentPath + house1.getType());
 
         paragraph1.createParagraph("Паспорт здания: " + house1.getAddress() + " (ID объекта " + house1.getId() + ")", true, false);
 
-        table1.createTable(currentPath + "/Passport_" + house1.getType(1) + ".yaml");
+        table1.createTable(currentPath + "/Passport_" + house1.getType(1) + ".yaml", 12);
 
-        if (Integer.parseInt(ClientWindow.answer.get(6)) == 2) {
+        if (!house1.isWorking()) {
 
             paragraph1.createParagraph("Ведомость дефектов:", true, false);
 

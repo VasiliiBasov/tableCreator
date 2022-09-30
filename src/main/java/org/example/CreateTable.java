@@ -75,6 +75,52 @@ public class CreateTable {
         System.out.println("table written successully");
     }
 
+    public void createTable(String path, int textSize) throws IOException, House.DocumentNotCreated {
+
+        table = document.createTable();
+        CTTblWidth widthRepr = table.getCTTbl().getTblPr().addNewTblW();
+        widthRepr.setType(STTblWidth.DXA);
+        widthRepr.setW(BigInteger.valueOf(9500));
+        table.removeTableAlignment();
+
+        XWPFTableRow tableRowOne = table.getRow(0);
+        if (flag) {
+            fillParagraph(tableRowOne.getCell(0).getParagraphArray(0), "Наименование характеристики", textSize);
+            fillParagraph(tableRowOne.addNewTableCell().getParagraphArray(0), "Описание", textSize);
+            tableRowOne.getCell(0).setColor("A9A9A9");
+            tableRowOne.getCell(1).setColor("A9A9A9");
+            tableRowOne.getCell(0).getParagraphArray(0).setAlignment(ParagraphAlignment.CENTER);
+            tableRowOne.getCell(1).getParagraphArray(0).setAlignment(ParagraphAlignment.CENTER);
+            flag = false;
+        } else {
+            fillParagraph(tableRowOne.getCell(0).getParagraphArray(0), "1 Адрес объекта", textSize);
+            fillParagraph(tableRowOne.addNewTableCell().getParagraphArray(0), house.getAddress(), textSize);
+            flag = true;
+        }
+
+        File file = new File(path);
+        InputStream inputStream = new FileInputStream(file);
+        Yaml yaml = new Yaml();
+        Map<String, String> data = yaml.load(inputStream);
+
+        Set<String> set = data.keySet();
+        set.forEach(s -> {
+            tableRow = table.createRow();
+            try {
+                fillParagraph(tableRow.getCell(0).getParagraphArray(0), s, textSize);
+            } catch (House.DocumentNotCreated e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                fillParagraph(tableRow.getCell(1).getParagraphArray(0), String.valueOf(data.get(s)), textSize);
+            } catch (House.DocumentNotCreated e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        System.out.println("table written successully");
+    }
+
     public void createStatement(String path) throws IOException, House.DocumentNotCreated {
         table = document.createTable();
         CTTblWidth widthRepr = table.getCTTbl().getTblPr().addNewTblW();
@@ -114,7 +160,7 @@ public class CreateTable {
                 throw new RuntimeException(e);
             }
             i[0]++;
-            if (i[0] == 4 && j[0] < 1) {
+            if (i[0] == 4 && j[0] < 2) {
                 i[0] = 0;
                 tableRow = table.createRow();
                 j[0]++;
@@ -243,6 +289,126 @@ public class CreateTable {
         if (flagVolume) {
             XWPFRun run1 = paragraph.createRun();
             run.setFontSize(13);
+            run.setFontFamily("Times New Roman");
+            run1.setSubscript(VerticalAlign.SUPERSCRIPT);
+            run1.setText("3");
+            flagVolume = false;
+        }
+    }
+
+    private void fillParagraph(XWPFParagraph paragraph, String text, int textSize) throws House.DocumentNotCreated {
+        paragraph.setSpacingBefore(0);
+        paragraph.setSpacingAfter(0);
+        StringBuilder stringBuilder = new StringBuilder(text);
+        if (text.contains("date")) {
+            text = text.replaceFirst("date", house.getDate());
+            stringBuilder = new StringBuilder(text);
+        }
+        if (text.contains("width")) {
+            text = text.replaceFirst("width", String.valueOf(house.getWidth()).replaceAll("\\.", ","));
+            stringBuilder = new StringBuilder(text);
+        }
+        if (text.contains("height")) {
+            text = text.replaceFirst("height", String.valueOf(house.getHeight()).replaceAll("\\.", ","));
+            stringBuilder = new StringBuilder(text);
+        }
+        if (text.contains("length")) {
+            text = text.replaceFirst("length", String.valueOf(house.getLength()).replaceAll("\\.", ","));
+            stringBuilder = new StringBuilder(text);
+        }
+        if (text.contains("appointment")) {
+            text = text.replaceFirst("appointment", String.valueOf(house.getAppointment()));
+            stringBuilder = new StringBuilder(text);
+        }
+        if (text.contains("roof")) {
+            text = text.replaceFirst("roof", String.valueOf(house.getRoof()));
+            stringBuilder = new StringBuilder(text);
+        }
+        if (text.contains("windows")) {
+            text = text.replaceFirst("windows", String.valueOf(house.getWindows()));
+            stringBuilder = new StringBuilder(text);
+        }
+        if (text.contains("volume")) {
+            text = text.replaceFirst("volume", String.valueOf(new DecimalFormat("#0.00").format(house.getWidth() * house.getLength() * house.getHeight())).replaceAll("\\.", ","));
+            stringBuilder = new StringBuilder(text);
+            flagVolume = true;
+        }
+        if (text.contains("square")) {
+            text = text.replaceFirst("square", String.valueOf(new DecimalFormat("#0.00").format(house.getLength() * house.getWidth())).replaceAll("\\.", ","));
+            stringBuilder = new StringBuilder(text);
+            flagSquar = true;
+        }
+
+        if (text.contains("def")) {
+            text = text.replaceAll("def", "-");
+            stringBuilder = new StringBuilder(text);
+        }
+
+        if (text.contains("condition")) {
+            XWPFRun run = paragraph.createRun();
+            run.setFontSize(textSize);
+            run.setFontFamily("Times New Roman");
+            String textOfRun = stringBuilder.toString();
+            String[] stringsOnNewLines = textOfRun.split("condition");
+            if (stringsOnNewLines.length > 0) run.setText(stringsOnNewLines[0]);
+            XWPFRun newrun = paragraph.createRun();
+            newrun.setFontSize(textSize);
+            newrun.setFontFamily("Times New Roman");
+            newrun.setBold(true);
+            newrun.setItalic(true);
+            newrun.setText(String.valueOf(house.getCondition()));
+            return;
+        }
+
+        if (text.contains("@")) {
+            XWPFRun run = paragraph.createRun();
+            run.setFontSize(textSize);
+            run.setFontFamily("Times New Roman");
+            run.setText(stringBuilder.toString());
+            int i_paragraph = 0;
+            while (i_paragraph < paragraph.getRuns().size()) { //BETTER THE WHILE
+                XWPFRun xwpfRun = paragraph.getRuns().get(i_paragraph);
+
+                // Split runs by new line character.
+                String textOfRun = xwpfRun.getText(0);
+                if (textOfRun.contains("@")) {
+                    String[] stringsOnNewLines = textOfRun.split("@");
+
+                    for (int i = 0; i < stringsOnNewLines.length; i++) {
+
+                        String textForLine = stringsOnNewLines[i];
+                        if (i == stringsOnNewLines.length - 1) {
+                            xwpfRun.setText(textForLine, 0);
+                        } else {
+                            paragraph.insertNewRun(i);
+                            XWPFRun newRun = paragraph.getRuns().get(i);
+                            CTRPr rPr = newRun.getCTR().isSetRPr() ? newRun.getCTR().getRPr() : newRun.getCTR().addNewRPr();
+                            rPr.set(xwpfRun.getCTR().getRPr());
+                            newRun.setText(textForLine);
+                            newRun.addBreak();//ADD THE NEW LINE
+                        }
+                    }
+                }
+                i_paragraph++;
+            }
+            return;
+        }
+
+        XWPFRun run = paragraph.createRun();
+        run.setFontSize(textSize);
+        run.setFontFamily("Times New Roman");
+        run.setText(stringBuilder.toString());
+        if (flagSquar) {
+            XWPFRun run1 = paragraph.createRun();
+            run.setFontSize(textSize);
+            run.setFontFamily("Times New Roman");
+            run1.setSubscript(VerticalAlign.SUPERSCRIPT);
+            run1.setText("2");
+            flagSquar = false;
+        }
+        if (flagVolume) {
+            XWPFRun run1 = paragraph.createRun();
+            run.setFontSize(textSize);
             run.setFontFamily("Times New Roman");
             run1.setSubscript(VerticalAlign.SUPERSCRIPT);
             run1.setText("3");
