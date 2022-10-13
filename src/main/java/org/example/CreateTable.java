@@ -15,9 +15,7 @@ import java.util.Set;
 
 public class CreateTable {
     private XWPFDocument document;
-    private FileOutputStream out;
     private XWPFTableRow tableRow;
-
     private House house;
     private boolean flag = true;
     private boolean flagSquar = false;
@@ -172,7 +170,6 @@ public class CreateTable {
 
     public CreateTable(XWPFDocument document, String path, House house) throws FileNotFoundException {
         this.document = document;
-        this.out = new FileOutputStream(new File(path));
         this.house = house;
     }
 

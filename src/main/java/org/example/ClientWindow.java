@@ -12,6 +12,7 @@ import java.nio.file.Paths;
 import java.util.*;
 
 import static org.example.App.currentPath;
+import static org.example.App.document;
 
 public class ClientWindow extends JFrame implements ActionListener {
 
@@ -62,10 +63,20 @@ public class ClientWindow extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        try {
-            write();
-        } catch (IOException | InvalidFormatException ex) {
-            throw new RuntimeException(ex);
+        if (fieldInput.getText().equals("finish")) {
+            try {
+                App.createImages();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            log.append("Документ создан!\n");
+        }
+        else {
+            try {
+                write();
+            } catch (IOException | InvalidFormatException ex) {
+                throw new RuntimeException(ex);
+            }
         }
 
     }
@@ -85,6 +96,7 @@ public class ClientWindow extends JFrame implements ActionListener {
         String msg = fieldInput.getText();
         if (msg.equals("")) return;
         if (msg.equals("restart")) {
+            setHouseCount(getHouseCount()-1);
             fieldInput.setText(null);
             restart("Чтобы добавить новое здание нажмите enter\n", true);
             return;
@@ -210,4 +222,5 @@ public class ClientWindow extends JFrame implements ActionListener {
     public static void setHouseCount(int houseCount) {
         ClientWindow.houseCount = houseCount;
     }
+
 }

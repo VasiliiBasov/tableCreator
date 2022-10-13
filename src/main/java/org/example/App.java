@@ -4,6 +4,7 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.xwpf.usermodel.*;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class App {
     static XWPFDocument document = new XWPFDocument();
@@ -11,6 +12,7 @@ public class App {
     private static String path;
     private static int tableId = 0;
     public static String currentPath;
+    public static ArrayList<House> houses = new ArrayList<>();
 
     static {
         try {
@@ -25,9 +27,10 @@ public class App {
         this.path = path;
     }
 
-    public static void test1() throws InvalidFormatException, IOException, House.DocumentNotCreated {
+    public static void test1() throws IOException, House.DocumentNotCreated {
         App app = new App(currentPath + "/Tables.docx");
         House house1 = new House();
+        houses.add(house1);
 
 
         CreateParagraph paragraph1 = new CreateParagraph(document, path);
@@ -68,6 +71,15 @@ public class App {
         document.write(out);
         out.close();
 
+    }
+
+    public static void createImages() throws IOException {
+        App app1 = new App(currentPath + "/Tables.docx");
+        Images imagesTable = new Images(document, houses);
+        imagesTable.createImages();
+
+        document.write(out);
+        out.close();
     }
 
 
