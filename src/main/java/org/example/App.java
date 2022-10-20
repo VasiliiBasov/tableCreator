@@ -45,8 +45,9 @@ public class App {
         if (!house1.isWorking()) {
 
             paragraph1.createParagraph("Ведомость дефектов:", true, false);
-
-            table1.createStatement(currentPath + "/Statement1-2.yaml");
+            if (!(house1.getType(3) == 3)) {
+                table1.createStatement(currentPath + "/Statement.yaml");
+            } else table1.createStatement(currentPath + "/Statement3.yaml");
             paragraph1.createConclusion(house1, currentPath + "/conclusion.txt");
 
 //            paragraph1.createParagraph("По результатам проведенного обследования несущих и " +

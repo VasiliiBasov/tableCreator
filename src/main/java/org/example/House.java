@@ -123,7 +123,10 @@ public class House {
     }
 
     public String getType() {
-        return "/" + String.valueOf(type) + ".yaml";
+        if (isWorking) {
+            return "/" + type + ".yaml";
+        }
+        else return "/" + type + "D.yaml";
     }
     public int getType(int i) {
         return type;
