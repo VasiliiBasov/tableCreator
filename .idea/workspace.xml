@@ -10,12 +10,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9bbb54c9-2bd0-46a5-b20b-cfa95ea81176" name="Changes" comment="Work all">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Images.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FileConclusion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/4.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/4.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/5.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Statement.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Statement1-2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Table.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Table.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tables.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Tables.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conclusion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/conclusion.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ClientWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ClientWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CreateTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CreateTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ClientWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CreateParagraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Paragraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CreateTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Table.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/House.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,10 +113,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClientWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Window" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../../../Program Files/Java/jdk1.8.0_341" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="org.example.ClientWindow" />
+      <option name="MAIN_CLASS_NAME" value="org.example.Window" />
       <module name="ProgramTableCreator" />
       <extension name="coverage">
         <pattern>
@@ -153,7 +166,11 @@
       <workItem from="1664288466864" duration="1964000" />
       <workItem from="1664518434494" duration="3333000" />
       <workItem from="1665475441249" duration="13000" />
-      <workItem from="1665658268523" duration="8004000" />
+      <workItem from="1665658268523" duration="8047000" />
+      <workItem from="1665905751359" duration="670000" />
+      <workItem from="1665956019623" duration="535000" />
+      <workItem from="1666179268884" duration="635000" />
+      <workItem from="1666259444277" duration="9512000" />
     </task>
     <task id="LOCAL-00001" summary="Таблицы и параграфы создаются">
       <created>1663655768753</created>
@@ -218,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664290433335</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Work all">
+      <created>1665667006048</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1665667006048</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

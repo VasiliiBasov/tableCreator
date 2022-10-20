@@ -24,29 +24,29 @@ public class House {
 
     public House() throws IOException, DocumentNotCreated {
         setDate();
-        ArrayList<String> ans = ClientWindow.answer;
-        for (int i = 0; i < ClientWindow.answer.size(); i++) {
+        ArrayList<String> ans = Window.answer;
+        for (int i = 0; i < Window.answer.size(); i++) {
             if (String.valueOf(ans.get(i)).contains(",")) {
                 ans.set(i, ans.get(i).replace(",", "."));
             }
         }
         try {
-            address = ClientWindow.answer.get(0);
-            id = ClientWindow.answer.get(1);
-            length = Double.parseDouble(ClientWindow.answer.get(2));
-            width = Double.parseDouble(ClientWindow.answer.get(3));
-            height = Double.parseDouble(ClientWindow.answer.get(4));
-            appointment = ClientWindow.answer.get(5);
-            roof = ClientWindow.answer.get(6);
-            if (Integer.parseInt(ClientWindow.answer.get(7)) == 1) {
+            address = Window.answer.get(0);
+            id = Window.answer.get(1);
+            length = Double.parseDouble(Window.answer.get(2));
+            width = Double.parseDouble(Window.answer.get(3));
+            height = Double.parseDouble(Window.answer.get(4));
+            appointment = Window.answer.get(5);
+            roof = Window.answer.get(6);
+            if (Integer.parseInt(Window.answer.get(7)) == 1) {
                 condition = "работоспособное";
                 isWorking = true;
-            } else if (Integer.parseInt(ClientWindow.answer.get(7)) == 2) {
+            } else if (Integer.parseInt(Window.answer.get(7)) == 2) {
                 condition = "ограниченно-работоспособное";
                 isWorking = false;
             }
-            type = Integer.parseInt(ClientWindow.answer.get(8));
-            windows = Integer.parseInt(ClientWindow.answer.get(9));
+            type = Integer.parseInt(Window.answer.get(8));
+            windows = Integer.parseInt(Window.answer.get(9));
         }
         catch (Exception e) {
             System.out.println(e);

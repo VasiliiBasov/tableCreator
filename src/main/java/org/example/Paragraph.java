@@ -7,7 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class CreateParagraph {
+public class Paragraph {
     private XWPFDocument document;
     private FileOutputStream out;
     private final ArrayList<String> conclusion = new ArrayList<>();
@@ -64,7 +64,7 @@ public class CreateParagraph {
         System.out.println("paragraph written successfully");
     }
 
-    public CreateParagraph(XWPFDocument document, String path) throws IOException {
+    public Paragraph(XWPFDocument document, String path) throws IOException {
         this.document = document;
         this.out = new FileOutputStream(new File(path));
     }
@@ -73,6 +73,7 @@ public class CreateParagraph {
         Files.lines(Paths.get(path)).forEach(conclusion::add);
         int line = 0;
         XWPFParagraph paragraph = document.createParagraph();
+        paragraph.setAlignment(ParagraphAlignment.BOTH);
         paragraph.createRun().addBreak();
         paragraph.createRun().addTab();
         if (house.getCondition().equals("ограниченно-работоспособное")) line = 4;

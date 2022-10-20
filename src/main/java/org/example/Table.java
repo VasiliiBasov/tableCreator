@@ -13,7 +13,7 @@ import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.Set;
 
-public class CreateTable {
+public class Table {
     private XWPFDocument document;
     private XWPFTableRow tableRow;
     private House house;
@@ -127,10 +127,10 @@ public class CreateTable {
         table.removeTableAlignment();
 
         XWPFTableRow tableRowOne = table.getRow(0);
-        fillParagraph(tableRowOne.getCell(0).getParagraphArray(0), "Элемент");
-        fillParagraph(tableRowOne.addNewTableCell().getParagraphArray(0), "Местоположение дефекта или повреждения");
-        fillParagraph(tableRowOne.addNewTableCell().getParagraphArray(0), "Описание дефекта или повреждения");
-        fillParagraph(tableRowOne.addNewTableCell().getParagraphArray(0), "Рекомендации");
+        fillParagraph(tableRowOne.getCell(0).getParagraphArray(0), "Элемент", 11);
+        fillParagraph(tableRowOne.addNewTableCell().getParagraphArray(0), "Местоположение дефекта или повреждения", 11);
+        fillParagraph(tableRowOne.addNewTableCell().getParagraphArray(0), "Описание дефекта или повреждения", 11);
+        fillParagraph(tableRowOne.addNewTableCell().getParagraphArray(0), "Рекомендации", 11);
         for (int i = 0; i < 4; i++) {
             tableRowOne.getCell(i).setColor("A9A9A9");
             tableRowOne.getCell(i).getParagraphArray(0).setAlignment(ParagraphAlignment.CENTER);
@@ -147,18 +147,18 @@ public class CreateTable {
         tableRow = table.createRow();
         set.forEach(s -> {
             try {
-                fillParagraph(tableRow.getCell(i[0]).getParagraphArray(0), s);
+                fillParagraph(tableRow.getCell(i[0]).getParagraphArray(0), s, 11);
             } catch (House.DocumentNotCreated e) {
                 throw new RuntimeException(e);
             }
             i[0]++;
             try {
-                fillParagraph(tableRow.getCell(i[0]).getParagraphArray(0), data.get(s));
+                fillParagraph(tableRow.getCell(i[0]).getParagraphArray(0), data.get(s), 11);
             } catch (House.DocumentNotCreated e) {
                 throw new RuntimeException(e);
             }
             i[0]++;
-            if (i[0] == 4 && j[0] < 2) {
+            if (i[0] == 4 && j[0] < 3) {
                 i[0] = 0;
                 tableRow = table.createRow();
                 j[0]++;
@@ -168,7 +168,7 @@ public class CreateTable {
         System.out.println("statement written successfully");
     }
 
-    public CreateTable(XWPFDocument document, String path, House house) throws FileNotFoundException {
+    public Table(XWPFDocument document, House house) throws FileNotFoundException {
         this.document = document;
         this.house = house;
     }

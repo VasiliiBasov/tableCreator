@@ -12,9 +12,8 @@ import java.nio.file.Paths;
 import java.util.*;
 
 import static org.example.App.currentPath;
-import static org.example.App.document;
 
-public class ClientWindow extends JFrame implements ActionListener {
+public class Window extends JFrame implements ActionListener {
 
     public static final int WIDTH = 600;
     public static final int HEIGHT = 400;
@@ -31,14 +30,14 @@ public class ClientWindow extends JFrame implements ActionListener {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        SwingUtilities.invokeLater(ClientWindow::new);
+        SwingUtilities.invokeLater(Window::new);
     }
 
     public static final JTextArea log = new JTextArea();
     private final JTextField fieldInput = new JTextField();
 
 
-    public ClientWindow() {
+    public Window() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(WIDTH, HEIGHT);
         setLocationRelativeTo(null);
@@ -65,10 +64,11 @@ public class ClientWindow extends JFrame implements ActionListener {
 
         if (fieldInput.getText().equals("finish")) {
             try {
-                App.createImages();
+                App.createConclutionFile();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
+            fieldInput.setText(null);
             log.append("Документ создан!\n");
         }
         else {
@@ -113,7 +113,7 @@ public class ClientWindow extends JFrame implements ActionListener {
 //                log.selectAll();
 //                log.replaceSelection("");
                 App.test1();
-                ClientWindow.log.append("Здание добавлено!\n" +
+                Window.log.append("Здание добавлено!\n" +
                         "Чтобы добавить новое здание нажмите enter\n\n");
                 isNew = true;
 
@@ -130,7 +130,7 @@ public class ClientWindow extends JFrame implements ActionListener {
         question.add("Выберите тип крыши: \n" +
                 "1 - Односкатная\n" +
                 "2 - Двускатная");
-        question.add("Выберите техническое состояние: \n" +
+        question.add("Выберите Техническое состояние: \n" +
                 "1 - работоспособное\n" +
                 "2 - ограниченно-работоспособное");
         question.add("Выберите тип: \n" +
@@ -152,14 +152,14 @@ public class ClientWindow extends JFrame implements ActionListener {
             log.append(er);
             isNew = true;
         } else {
-            ClientWindow.log.append("Ошибка " + er + "\n" +
+            Window.log.append("Ошибка " + er + "\n" +
                     "Чтобы добавить новое здание нажмите enter\n");
             isNew = true;
         }
     }
 
     public static void restart(String er) {
-        ClientWindow.log.append("Ошибка " + er + "\n" +
+        Window.log.append("Ошибка " + er + "\n" +
                 "Чтобы добавить новое здание нажмите enter\n");
         isNew = true;
     }
@@ -220,7 +220,7 @@ public class ClientWindow extends JFrame implements ActionListener {
     }
 
     public static void setHouseCount(int houseCount) {
-        ClientWindow.houseCount = houseCount;
+        Window.houseCount = houseCount;
     }
 
 }

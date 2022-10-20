@@ -1,6 +1,5 @@
 package org.example;
 
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.xwpf.usermodel.*;
 
 import java.io.*;
@@ -33,10 +32,10 @@ public class App {
         houses.add(house1);
 
 
-        CreateParagraph paragraph1 = new CreateParagraph(document, path);
+        Paragraph paragraph1 = new Paragraph(document, path);
         paragraph1.createParagraph("Таблица 3." + app.getTableId() + " – Конструктивные данные по результатам обследования сооружения по адресу: " + house1.getAddress() + " (ID объекта " + house1.getId() + ")", false, true);
 
-        CreateTable table1 = new CreateTable(document, path, house1);
+        Table table1 = new Table(document, house1);
         table1.createTable(currentPath + house1.getType());
 
         paragraph1.createParagraph("Паспорт здания: " + house1.getAddress() + " (ID объекта " + house1.getId() + ")", true, false);
@@ -47,13 +46,13 @@ public class App {
 
             paragraph1.createParagraph("Ведомость дефектов:", true, false);
 
-            table1.createStatement(currentPath + "/Statement.yaml");
+            table1.createStatement(currentPath + "/Statement1-2.yaml");
             paragraph1.createConclusion(house1, currentPath + "/conclusion.txt");
 
 //            paragraph1.createParagraph("По результатам проведенного обследования несущих и " +
 //                    "ограждающих конструкций здания по адресу: " + house1.getAddress()
 //                    + " (ID объекта " + house1.getId() + ")"
-//                    + ", техническое состояние сооружения – " + house1.getCondition()
+//                    + ", @Техническое состояние сооружения – " + house1.getCondition()
 //                    + ", обнаружены дефекты, влияющие на несущую способность конструкций, " +
 //                    "а также на их долговечность и на эксплуатационную надежность."
 //                    + " Обнаруженные дефекты возникли по причине отсутствия своевременных " +
@@ -64,7 +63,7 @@ public class App {
 //            paragraph1.createParagraph("По результатам проведенного обследования несущих и ограждающих " +
 //                    "конструкций здания по адресу: " + house1.getAddress()
 //                    + " (ID объекта " + house1.getId() + ")"
-//                    + ", техническое состояние сооружения – " + house1.getCondition()
+//                    + ", @Техническое состояние сооружения – " + house1.getCondition()
 //                    + ", дефекты, влияющие на несущую способность конструкций, " +
 //                    "а также на их долговечность и на эксплуатационную надежность не обнаружены.", false, false);
         }
@@ -73,8 +72,10 @@ public class App {
 
     }
 
-    public static void createImages() throws IOException {
+    public static void createConclutionFile() throws IOException {
         App app1 = new App(currentPath + "/Tables.docx");
+        FileConclusion fileConclusion = new FileConclusion(document, houses, path);
+        fileConclusion.createFileConclusion();
         Images imagesTable = new Images(document, houses);
         imagesTable.createImages();
 
@@ -86,5 +87,9 @@ public class App {
     public int getTableId() {
         tableId++;
         return tableId;
+    }
+
+    public static String getPath() {
+        return path;
     }
 }
