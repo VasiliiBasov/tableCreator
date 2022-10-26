@@ -221,22 +221,6 @@ public class Table {
             stringBuilder = new StringBuilder(text);
         }
 
-        if (text.contains("condition")) {
-            XWPFRun run = paragraph.createRun();
-            run.setFontSize(13);
-            run.setFontFamily("Times New Roman");
-            String textOfRun = stringBuilder.toString();
-            String[] stringsOnNewLines = textOfRun.split("condition");
-            if (stringsOnNewLines.length > 0) run.setText(stringsOnNewLines[0]);
-            XWPFRun newrun = paragraph.createRun();
-            newrun.setFontSize(13);
-            newrun.setFontFamily("Times New Roman");
-            newrun.setBold(true);
-            newrun.setItalic(true);
-            newrun.setText(String.valueOf(house.getCondition()));
-            return;
-        }
-
         if (text.contains("@")) {
             XWPFRun run = paragraph.createRun();
             run.setFontSize(13);
@@ -255,7 +239,20 @@ public class Table {
 
                         String textForLine = stringsOnNewLines[i];
                         if (i == stringsOnNewLines.length - 1) {
-                            xwpfRun.setText(textForLine, 0);
+                            if (textForLine.contains("Техническое состояние – condition")) {
+                                System.out.println("cond");
+                                XWPFRun xwpfRun1 = paragraph.createRun();
+                                String cond = "Техническое состояние – ";
+                                xwpfRun.setText(cond, 0);
+                                xwpfRun1.setFontFamily("Times New Roman");
+                                xwpfRun1.setFontSize(13);
+                                xwpfRun1.setBold(true);
+                                xwpfRun1.setItalic(true);
+                                xwpfRun1.setText(String.valueOf(house.getCondition()));
+                            }
+                            else {
+                                xwpfRun.setText(textForLine, 0);
+                            }
                         } else {
                             paragraph.insertNewRun(i);
                             XWPFRun newRun = paragraph.getRuns().get(i);
@@ -268,6 +265,22 @@ public class Table {
                 }
                 i_paragraph++;
             }
+            return;
+        }
+
+        if (text.contains("condition")) {
+            XWPFRun run = paragraph.createRun();
+            run.setFontSize(13);
+            run.setFontFamily("Times New Roman");
+            String textOfRun = stringBuilder.toString();
+            String[] stringsOnNewLines = textOfRun.split("condition");
+            if (stringsOnNewLines.length > 0) run.setText(stringsOnNewLines[0]);
+            XWPFRun newrun = paragraph.createRun();
+            newrun.setFontSize(13);
+            newrun.setFontFamily("Times New Roman");
+            newrun.setBold(true);
+            newrun.setItalic(true);
+            newrun.setText(String.valueOf(house.getCondition()));
             return;
         }
 
@@ -341,22 +354,6 @@ public class Table {
             stringBuilder = new StringBuilder(text);
         }
 
-        if (text.contains("condition")) {
-            XWPFRun run = paragraph.createRun();
-            run.setFontSize(textSize);
-            run.setFontFamily("Times New Roman");
-            String textOfRun = stringBuilder.toString();
-            String[] stringsOnNewLines = textOfRun.split("condition");
-            if (stringsOnNewLines.length > 0) run.setText(stringsOnNewLines[0]);
-            XWPFRun newrun = paragraph.createRun();
-            newrun.setFontSize(textSize);
-            newrun.setFontFamily("Times New Roman");
-            newrun.setBold(true);
-            newrun.setItalic(true);
-            newrun.setText(String.valueOf(house.getCondition()));
-            return;
-        }
-
         if (text.contains("@")) {
             XWPFRun run = paragraph.createRun();
             run.setFontSize(textSize);
@@ -375,7 +372,20 @@ public class Table {
 
                         String textForLine = stringsOnNewLines[i];
                         if (i == stringsOnNewLines.length - 1) {
-                            xwpfRun.setText(textForLine, 0);
+                            if (textForLine.contains("Техническое состояние – condition")) {
+                                System.out.println("cond");
+                                XWPFRun xwpfRun1 = paragraph.createRun();
+                                String cond = "Техническое состояние – ";
+                                xwpfRun.setText(cond, 0);
+                                xwpfRun1.setFontFamily("Times New Roman");
+                                xwpfRun1.setFontSize(13);
+                                xwpfRun1.setBold(true);
+                                xwpfRun1.setItalic(true);
+                                xwpfRun1.setText(String.valueOf(house.getCondition()));
+                            }
+                            else {
+                                xwpfRun.setText(textForLine, 0);
+                            }
                         } else {
                             paragraph.insertNewRun(i);
                             XWPFRun newRun = paragraph.getRuns().get(i);
@@ -388,6 +398,22 @@ public class Table {
                 }
                 i_paragraph++;
             }
+            return;
+        }
+
+        if (text.contains("condition")) {
+            XWPFRun run = paragraph.createRun();
+            run.setFontSize(textSize);
+            run.setFontFamily("Times New Roman");
+            String textOfRun = stringBuilder.toString();
+            String[] stringsOnNewLines = textOfRun.split("condition");
+            if (stringsOnNewLines.length > 0) run.setText(stringsOnNewLines[0]);
+            XWPFRun newrun = paragraph.createRun();
+            newrun.setFontSize(textSize);
+            newrun.setFontFamily("Times New Roman");
+            newrun.setBold(true);
+            newrun.setItalic(true);
+            newrun.setText(String.valueOf(house.getCondition()));
             return;
         }
 

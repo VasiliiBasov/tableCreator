@@ -9,21 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9bbb54c9-2bd0-46a5-b20b-cfa95ea81176" name="Changes" comment="Work all">
-      <change afterPath="$PROJECT_DIR$/1D.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2D.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/3D.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/4D.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/5D.yaml" afterDir="false" />
+    <list default="true" id="9bbb54c9-2bd0-46a5-b20b-cfa95ea81176" name="Changes" comment="Have problem with line break">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Statement1-2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Statement.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Statement4.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Statement5.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1D.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/1D.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/2.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2D.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/2D.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/3.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3D.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/3D.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/4.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/4.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/4D.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/4D.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/5.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5D.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/5D.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tables.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Tables.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conclusion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/conclusion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conclusion2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/conclusion2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/House.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Table.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,26 +58,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/vasek/IdeaProjects/ProgramTableCreator",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "spring.configuration.checksum": "c8b90fb793f20414ff640b4df107d024"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vasek/IdeaProjects/ProgramTableCreator&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;c8b90fb793f20414ff640b4df107d024&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "directory",
-      "module"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example" />
