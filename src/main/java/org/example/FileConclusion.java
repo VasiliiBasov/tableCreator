@@ -8,10 +8,10 @@ public class FileConclusion {
     private XWPFDocument document;
     private ArrayList<House> houses;
     private static int imageId = 1;
-    private String path;
+    private final String path;
     private Paragraph paragraph;
 
-    public void createFileConclusion() throws IOException {
+    public void createFileConclusion() {
         paragraph.createParagraph("4 ЗАКЛЮЧЕНИЕ", false, false);
         paragraph.createParagraph("По результатам обследования несущих " +
                 "и ограждающих конструкций " + houses.size() + " зданий и сооружений " +

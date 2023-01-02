@@ -8,10 +8,8 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 
 public class Images {
-    private XWPFDocument document;
-    //private XWPFTableRow tableRow;
-    private ArrayList<House> houses = new ArrayList<>();
-    private static int imageId = 1;
+    private final XWPFDocument document;
+    private final ArrayList<House> houses;
 
     public Images(XWPFDocument document, ArrayList<House> houses) {
         this.document = document;
@@ -35,12 +33,12 @@ public class Images {
             XWPFTableRow tableRow = tableImage.createRow();
             House s = houses.get(i);
             String text = "Рисунок А." + (houses.indexOf(s)+1) + ". Общий вид сооружения по адресу: " +
-                    s.getAddress() + " (ID объекта " + s.getId() + ")";
+                    s.getAddress() + " (ID объекта " + s.getIdd() + ")";
             fillParagraph(tableRow.getCell(0).getParagraphArray(0), text);
             if (houses.indexOf(s)<houses.size()-1) {
                 s = houses.get(i + 1);
                 text = "Рисунок А." + (houses.indexOf(s) + 1) + ". Общий вид сооружения по адресу: " +
-                        s.getAddress() + " (ID объекта " + s.getId() + ")";
+                        s.getAddress() + " (ID объекта " + s.getIdd() + ")";
                 fillParagraph(tableRow.getCell(1).getParagraphArray(0), text);
             }
             else fillParagraph(tableRow.getCell(1).getParagraphArray(0), "");

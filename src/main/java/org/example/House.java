@@ -1,28 +1,45 @@
 package org.example;
 
-import java.io.IOException;
+
+import javax.persistence.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+@Entity
+@Table(name="housess", catalog = "houses")
 public class House {
     private String address;
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column
+    private String idd;
+    @Column
     private double length;
+    @Column
     private double width;
+
     private double height;
+
     private String appointment;
-    private String condition;
+
+    private String conditionn;
+
     private boolean isWorking;
-    private int type;
+
+    private final int type;
+
     private int windows;
+
     private String roof;
+
 
     private String date;
 
 
-    public House() throws IOException, DocumentNotCreated {
+    public House() throws DocumentNotCreated {
         setDate();
         ArrayList<String> ans = Window.answer;
         for (int i = 0; i < Window.answer.size(); i++) {
@@ -32,24 +49,23 @@ public class House {
         }
         try {
             address = Window.answer.get(0);
-            id = Window.answer.get(1);
+            idd = Window.answer.get(1);
             length = Double.parseDouble(Window.answer.get(2));
             width = Double.parseDouble(Window.answer.get(3));
             height = Double.parseDouble(Window.answer.get(4));
             appointment = Window.answer.get(5);
             roof = Window.answer.get(6);
             if (Integer.parseInt(Window.answer.get(7)) == 1) {
-                condition = "работоспособное";
+                conditionn = "работоспособное";
                 isWorking = true;
             } else if (Integer.parseInt(Window.answer.get(7)) == 2) {
-                condition = "ограниченно-работоспособное";
+                conditionn = "ограниченно-работоспособное";
                 isWorking = false;
             }
             type = Integer.parseInt(Window.answer.get(8));
             windows = Integer.parseInt(Window.answer.get(9));
         }
         catch (Exception e) {
-            System.out.println(e);
             throw new DocumentNotCreated(e.getMessage());
         }
     }
@@ -62,13 +78,6 @@ public class House {
         this.address = address;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public double getLength() {
         return length;
@@ -102,12 +111,12 @@ public class House {
         this.appointment = appointment;
     }
 
-    public String getCondition() {
-        return condition;
+    public String getConditionn() {
+        return conditionn;
     }
 
-    public void setCondition(String condition) {
-        this.condition = condition;
+    public void setConditionn(String conditionn) {
+        this.conditionn = conditionn;
     }
 
     public String getDate() {
@@ -171,10 +180,18 @@ public class House {
         isWorking = working;
     }
 
-    public class DocumentNotCreated extends Exception {
+    public static class DocumentNotCreated extends Exception {
 
         public DocumentNotCreated (String message) {
             super(message);
         }
+    }
+
+    public String getIdd() {
+        return idd;
+    }
+
+    public void setIdd(String idd) {
+        this.idd = idd;
     }
 }

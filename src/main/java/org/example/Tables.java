@@ -13,7 +13,7 @@ import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.Set;
 
-public class Table {
+public class Tables {
     private XWPFDocument document;
     private XWPFTableRow tableRow;
     private House house;
@@ -168,7 +168,7 @@ public class Table {
         System.out.println("statement written successfully");
     }
 
-    public Table(XWPFDocument document, House house) throws FileNotFoundException {
+    public Tables(XWPFDocument document, House house) throws FileNotFoundException {
         this.document = document;
         this.house = house;
     }
@@ -248,7 +248,7 @@ public class Table {
                                 xwpfRun1.setFontSize(13);
                                 xwpfRun1.setBold(true);
                                 xwpfRun1.setItalic(true);
-                                xwpfRun1.setText(String.valueOf(house.getCondition()));
+                                xwpfRun1.setText(String.valueOf(house.getConditionn()));
                             }
                             else {
                                 xwpfRun.setText(textForLine, 0);
@@ -280,7 +280,7 @@ public class Table {
             newrun.setFontFamily("Times New Roman");
             newrun.setBold(true);
             newrun.setItalic(true);
-            newrun.setText(String.valueOf(house.getCondition()));
+            newrun.setText(String.valueOf(house.getConditionn()));
             return;
         }
 
@@ -381,7 +381,7 @@ public class Table {
                                 xwpfRun1.setFontSize(13);
                                 xwpfRun1.setBold(true);
                                 xwpfRun1.setItalic(true);
-                                xwpfRun1.setText(String.valueOf(house.getCondition()));
+                                xwpfRun1.setText(String.valueOf(house.getConditionn()));
                             }
                             else {
                                 xwpfRun.setText(textForLine, 0);
@@ -413,7 +413,7 @@ public class Table {
             newrun.setFontFamily("Times New Roman");
             newrun.setBold(true);
             newrun.setItalic(true);
-            newrun.setText(String.valueOf(house.getCondition()));
+            newrun.setText(String.valueOf(house.getConditionn()));
             return;
         }
 

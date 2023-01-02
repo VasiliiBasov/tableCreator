@@ -12,7 +12,7 @@ public class Paragraph {
     private FileOutputStream out;
     private final ArrayList<String> conclusion = new ArrayList<>();
 
-    public void createParagraph(String text) throws IOException {
+    public void createParagraph(String text) {
         // set font
         XWPFParagraph p1 = document.createParagraph();
 
@@ -27,7 +27,7 @@ public class Paragraph {
         System.out.println("paragraph written successfully");
     }
 
-    public void createParagraph(String text, Boolean center) throws IOException {
+    public void createParagraph(String text, Boolean center) {
         // set font
         XWPFParagraph p1 = document.createParagraph();
         if (center) p1.setAlignment(ParagraphAlignment.CENTER);
@@ -42,7 +42,7 @@ public class Paragraph {
         System.out.println("paragraph written successfully");
     }
 
-    public void createParagraph(String text, Boolean center, Boolean addBreakPage) throws IOException {
+    public void createParagraph(String text, Boolean center, Boolean addBreakPage) {
         // set font
         XWPFParagraph p1 = document.createParagraph();
         if (center) p1.setAlignment(ParagraphAlignment.CENTER);
@@ -66,7 +66,7 @@ public class Paragraph {
 
     public Paragraph(XWPFDocument document, String path) throws IOException {
         this.document = document;
-        this.out = new FileOutputStream(new File(path));
+        this.out = new FileOutputStream(path);
     }
 
     public void createConclusion(House house, String path) throws IOException {
@@ -76,7 +76,7 @@ public class Paragraph {
         paragraph.setAlignment(ParagraphAlignment.BOTH);
         paragraph.createRun().addBreak();
         paragraph.createRun().addTab();
-        if (house.getCondition().equals("ограниченно-работоспособное")) line = 4;
+        if (house.getConditionn().equals("ограниченно-работоспособное")) line = 4;
         System.out.println(conclusion);
         for (int i = 0; i < 4; i++) {
             XWPFRun run = paragraph.createRun();
@@ -92,9 +92,9 @@ public class Paragraph {
                 if (i == 0) {
                     newrun.setText(String.valueOf(house.getAddress()));
                 } else if (i == 1) {
-                    newrun.setText(String.valueOf(house.getId()));
+                    newrun.setText(String.valueOf(house.getIdd()));
                 } else {
-                    newrun.setText(String.valueOf(house.getCondition()));
+                    newrun.setText(String.valueOf(house.getConditionn()));
                 }
             }
             line++;

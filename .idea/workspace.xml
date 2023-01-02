@@ -9,20 +9,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9bbb54c9-2bd0-46a5-b20b-cfa95ea81176" name="Changes" comment="Have problem with line break">
+    <list default="true" id="9bbb54c9-2bd0-46a5-b20b-cfa95ea81176" name="Changes" comment="Work all 1">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ProgramTableCreator_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/ProgramTableCreator_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/1.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1D.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/1D.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/2.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2D.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/2D.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/3.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3D.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/3D.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/4.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/4.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/4D.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/4D.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/5.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5D.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/5D.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tables.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Tables.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Table.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/question.txt" beforeDir="false" afterPath="$PROJECT_DIR$/question.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FileConclusion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FileConclusion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/House.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Images.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Images.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Paragraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Paragraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Tables.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +48,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="MIXED" />
   </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -69,12 +73,16 @@
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;c8b90fb793f20414ff640b4df107d024&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;ChangesTree.GroupingKeys&quot;: [
       &quot;directory&quot;,
       &quot;module&quot;
+    ],
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
 }</component>
@@ -166,6 +174,13 @@
       <workItem from="1666179268884" duration="635000" />
       <workItem from="1666259444277" duration="9758000" />
       <workItem from="1666289658466" duration="6373000" />
+      <workItem from="1667369845517" duration="1460000" />
+      <workItem from="1667811219739" duration="3644000" />
+      <workItem from="1667901798135" duration="3720000" />
+      <workItem from="1669038638942" duration="2808000" />
+      <workItem from="1671352695755" duration="91000" />
+      <workItem from="1671524695733" duration="3809000" />
+      <workItem from="1672666129398" duration="2768000" />
     </task>
     <task id="LOCAL-00001" summary="Таблицы и параграфы создаются">
       <created>1663655768753</created>
@@ -244,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666272993363</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Work all 1">
+      <created>1666825183909</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1666825183909</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,6 +299,8 @@
     <MESSAGE value="Таблицы и параграфы создаются" />
     <MESSAGE value="Work with console only" />
     <MESSAGE value="Work all" />
-    <option name="LAST_COMMIT_MESSAGE" value="Work all" />
+    <MESSAGE value="Have problem with line break" />
+    <MESSAGE value="Work all 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Work all 1" />
   </component>
 </project>
