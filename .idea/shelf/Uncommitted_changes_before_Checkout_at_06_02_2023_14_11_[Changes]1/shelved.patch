@@ -1,0 +1,193 @@
+Index: src/main/java/org/example/App.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example;\r\n\r\nimport org.apache.poi.xwpf.usermodel.*;\r\n\r\nimport java.io.*;\r\nimport java.util.ArrayList;\r\n\r\npublic class App {\r\n    static XWPFDocument document = new XWPFDocument();\r\n    private static FileOutputStream out;\r\n    private static String path;\r\n    private static int tableId = 0;\r\n    public static String currentPath;\r\n    public static ArrayList<House> houses = new ArrayList<>();\r\n\r\n    static {\r\n        try {\r\n            currentPath = new File(\".\").getCanonicalPath();\r\n        } catch (IOException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n    }\r\n\r\n    public App(String path) throws IOException {\r\n        out = new FileOutputStream(path);\r\n        App.path = path;\r\n    }\r\n\r\n    public static void test1() throws IOException, House.DocumentNotCreated {\r\n        App app = new App(currentPath + \"/Tables.docx\");\r\n        House house1 = new House();\r\n        houses.add(house1);\r\n        DB.init();\r\n        DB.addHouse(house1);\r\n\r\n\r\n        Paragraph paragraph1 = new Paragraph(document, path);\r\n        paragraph1.createParagraph(\"Таблица 3.\" + app.getTableId() + \" – Конструктивные данные по результатам обследования сооружения по адресу: \" + house1.getAddress() + \" (ID объекта \" + house1.getIdd() + \")\", false, true);\r\n\r\n        Tables table1 = new Tables(document, house1);\r\n        table1.createTable(currentPath + house1.getType());\r\n\r\n        paragraph1.createParagraph(\"Паспорт здания: \" + house1.getAddress() + \" (ID объекта \" + house1.getIdd() + \")\", true, false);\r\n\r\n        table1.createTable(currentPath + \"/Passport_\" + house1.getType(1) + \".yaml\", 12);\r\n\r\n        if (!house1.isWorking()) {\r\n\r\n            paragraph1.createParagraph(\"Ведомость дефектов:\", true, false);\r\n            if (!(house1.getType(3) == 3)) {\r\n                table1.createStatement(currentPath + \"/Statement.yaml\");\r\n            } else table1.createStatement(currentPath + \"/Statement3.yaml\");\r\n            paragraph1.createConclusion(house1, currentPath + \"/conclusion.txt\");\r\n        } else {\r\n            paragraph1.createConclusion(house1, currentPath + \"/conclusion.txt\");\r\n        }\r\n        document.write(out);\r\n\r\n    }\r\n\r\n    public static void createConclutionFile() throws IOException {\r\n        FileConclusion fileConclusion = new FileConclusion(document, houses, path);\r\n        fileConclusion.createFileConclusion();\r\n        Images imagesTable = new Images(document, houses);\r\n        imagesTable.createImages();\r\n\r\n        document.write(out);\r\n        out.close();\r\n    }\r\n\r\n\r\n    public int getTableId() {\r\n        tableId++;\r\n        return tableId;\r\n    }\r\n\r\n    public static String getPath() {\r\n        return path;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/App.java b/src/main/java/org/example/App.java
+--- a/src/main/java/org/example/App.java	
++++ b/src/main/java/org/example/App.java	
+@@ -35,12 +35,12 @@
+ 
+ 
+         Paragraph paragraph1 = new Paragraph(document, path);
+-        paragraph1.createParagraph("Таблица 3." + app.getTableId() + " – Конструктивные данные по результатам обследования сооружения по адресу: " + house1.getAddress() + " (ID объекта " + house1.getIdd() + ")", false, true);
++        paragraph1.createParagraph("Таблица 3." + app.getTableId() + " – Конструктивные данные по результатам обследования сооружения по адресу: " + house1.getAddress() + " (ID объекта " + house1.getId() + ")", false, true);
+ 
+         Tables table1 = new Tables(document, house1);
+         table1.createTable(currentPath + house1.getType());
+ 
+-        paragraph1.createParagraph("Паспорт здания: " + house1.getAddress() + " (ID объекта " + house1.getIdd() + ")", true, false);
++        paragraph1.createParagraph("Паспорт здания: " + house1.getAddress() + " (ID объекта " + house1.getId() + ")", true, false);
+ 
+         table1.createTable(currentPath + "/Passport_" + house1.getType(1) + ".yaml", 12);
+ 
+@@ -63,9 +63,9 @@
+         fileConclusion.createFileConclusion();
+         Images imagesTable = new Images(document, houses);
+         imagesTable.createImages();
+-
+         document.write(out);
+         out.close();
++
+     }
+ 
+ 
+Index: src/main/java/org/example/Window.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example;\r\n\r\nimport org.apache.poi.openxml4j.exceptions.InvalidFormatException;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport java.io.*;\r\nimport java.nio.file.Files;\r\nimport java.nio.file.Paths;\r\nimport java.util.*;\r\n\r\nimport static org.example.App.currentPath;\r\n\r\npublic class Window extends JFrame implements ActionListener {\r\n\r\n    public static final int WIDTH = 600;\r\n    public static final int HEIGHT = 400;\r\n    private static final ArrayList<String> question = new ArrayList<>();\r\n    public static ArrayList<String> answer = new ArrayList<>();\r\n    private static int i = 1;\r\n    private static int houseCount = 0;\r\n    private static boolean isNew = false;\r\n\r\n    public static void main(String[] args) {\r\n\r\n        try {\r\n            readFile(currentPath + \"/question.txt\");\r\n        } catch (IOException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n        SwingUtilities.invokeLater(Window::new);\r\n    }\r\n\r\n    public static final JTextArea log = new JTextArea();\r\n    private final JTextField fieldInput = new JTextField();\r\n\r\n\r\n    public Window() {\r\n        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);\r\n        setSize(WIDTH, HEIGHT);\r\n        setLocationRelativeTo(null);\r\n        setAlwaysOnTop(true);\r\n\r\n        log.setEditable(false);\r\n        log.setLineWrap(true);\r\n        add(new JScrollPane(log), BorderLayout.CENTER);\r\n\r\n        fieldInput.addActionListener(this);\r\n        add(fieldInput, BorderLayout.SOUTH);\r\n\r\n        //private final BufferedReader in;\r\n\r\n\r\n        setVisible(true);\r\n        log.append(\"№ \" + getHouseCount() + \"\\n\" + question.get(0) + \"\\r\\n\");\r\n\r\n\r\n    }\r\n\r\n    @Override\r\n    public void actionPerformed(ActionEvent e) {\r\n\r\n        if (fieldInput.getText().equals(\"finish\")) {\r\n            try {\r\n                App.createConclutionFile();\r\n            } catch (IOException ex) {\r\n                throw new RuntimeException(ex);\r\n            }\r\n            fieldInput.setText(null);\r\n            log.append(\"Документ создан!\\n\");\r\n        }\r\n        else {\r\n            try {\r\n                write();\r\n            } catch (IOException | InvalidFormatException ex) {\r\n                throw new RuntimeException(ex);\r\n            }\r\n        }\r\n\r\n    }\r\n\r\n    public synchronized void write() throws IOException, InvalidFormatException {\r\n        if (isNew) {\r\n            if (fieldInput.getText().equals(\"\")) {\r\n                i = 1;\r\n                isNew = false;\r\n                answer = new ArrayList<>();\r\n                log.append(\"№ \" + getHouseCount() + \"\\n\" + question.get(0) + \"\\r\\n\");\r\n                write();\r\n            } else {\r\n                return;\r\n            }\r\n        }\r\n        String msg = fieldInput.getText();\r\n        if (msg.equals(\"\")) return;\r\n        if (msg.equals(\"restart\")) {\r\n            setHouseCount(getHouseCount()-1);\r\n            fieldInput.setText(null);\r\n            restart(\"Чтобы добавить новое здание нажмите enter\\n\", true);\r\n            return;\r\n        }\r\n        fieldInput.setText(null);\r\n        try {\r\n            if (searchEr(i, msg)) return;\r\n            log.append(\"Ответ: \" + msg + \"\\r\\n\");\r\n            answer.add(msg);\r\n            if (i < question.size()) {\r\n                log.append(question.get(i) + \"\\r\\n\");\r\n                i++;\r\n            } else {\r\n//                log.selectAll();\r\n//                log.replaceSelection(\"\");\r\n                App.test1();\r\n                Window.log.append(\"Здание добавлено!\\n\" +\r\n                        \"Чтобы добавить новое здание нажмите enter\\n\\n\");\r\n                isNew = true;\r\n\r\n            }\r\n        } catch (House.DocumentNotCreated documentNotCreated) {\r\n            restart(documentNotCreated.toString());\r\n        } catch (IOException ex) {\r\n            throw new RuntimeException(ex);\r\n        }\r\n    }\r\n\r\n    public static void readFile(String path) throws IOException {\r\n        Files.lines(Paths.get(path)).forEach(question::add);\r\n        question.add(\"Выберите тип крыши: \\n\" +\r\n                \"1 - Односкатная\\n\" +\r\n                \"2 - Двускатная\");\r\n        question.add(\"Выберите Техническое состояние: \\n\" +\r\n                \"1 - работоспособное\\n\" +\r\n                \"2 - ограниченно-работоспособное\");\r\n        question.add(\"Выберите тип: \\n\" +\r\n                \"1 - деревянны каркас\\n\" +\r\n                \"2 - деревянный брус\\n\" +\r\n                \"3 - Металл каркас\\n\" +\r\n                \"4 - пеноблок\\n\" +\r\n                \"5 - кирпич\");\r\n        question.add(\"Выберите световые проемы: \\n\" +\r\n                \"1 - Отсутствует\\n\" +\r\n                \"2 - Пвх двухкамерные окна, с стеклянным заполнением\\n\" +\r\n                \"3 - Деревянные стеклопакеты\");\r\n\r\n\r\n    }\r\n\r\n    public static void restart(String er, boolean notEr) {\r\n        if (notEr) {\r\n            log.append(er);\r\n            isNew = true;\r\n        } else {\r\n            Window.log.append(\"Ошибка \" + er + \"\\n\" +\r\n                    \"Чтобы добавить новое здание нажмите enter\\n\");\r\n            isNew = true;\r\n        }\r\n    }\r\n\r\n    public static void restart(String er) {\r\n        Window.log.append(\"Ошибка \" + er + \"\\n\" +\r\n                \"Чтобы добавить новое здание нажмите enter\\n\");\r\n        isNew = true;\r\n    }\r\n\r\n    public static boolean isNumeric(String str) {\r\n        try {\r\n            str = str.replaceAll(\",\", \".\");\r\n            Double.parseDouble(str);\r\n            return true;\r\n        } catch (NumberFormatException e) {\r\n            return false;\r\n        }\r\n    }\r\n\r\n    public static boolean isInteger(String str) {\r\n        try {\r\n            Integer.parseInt(str);\r\n            return true;\r\n        } catch (NumberFormatException e) {\r\n            return false;\r\n        }\r\n    }\r\n\r\n    private boolean searchEr(int i, String msg) {\r\n        if (i > 2 && !isNumeric(msg) && i != 6) {\r\n            log.append(\"Ошибка! \" + msg + \" - не числовое значение.\\n\");\r\n            log.append(question.get(i - 1) + \"\\r\\n\");\r\n            return true;\r\n        }\r\n        if (i > 6 && !isInteger(msg)) {\r\n            log.append(\"Ошибка! \" + msg + \" - не целое число.\\n\");\r\n            log.append(question.get(i - 1) + \"\\r\\n\");\r\n            return true;\r\n        }\r\n        if ((i == 7 || i == 8) && (Integer.parseInt(msg) < 1 || Integer.parseInt(msg) > 2)) {\r\n            log.append(\"Ошибка! \" + \"Не верно выбран параметр - \" + msg + \".\\n\");\r\n            log.append(question.get(i - 1) + \"\\r\\n\");\r\n            return true;\r\n        }\r\n        if (i == 9 && (Integer.parseInt(msg) < 1 || Integer.parseInt(msg) > 5)) {\r\n            log.append(\"Ошибка! \" + \"Не верно выбран параметр - \" + msg + \".\\n\");\r\n            log.append(question.get(i - 1) + \"\\r\\n\");\r\n            return true;\r\n        }\r\n        if (i == 10 && (Integer.parseInt(msg) < 1 || Integer.parseInt(msg) > 3)) {\r\n            log.append(\"Ошибка! \" + \"Не верно выбран параметр - \" + msg + \".\\n\");\r\n            log.append(question.get(i - 1) + \"\\r\\n\");\r\n            return true;\r\n        }\r\n\r\n        return false;\r\n\r\n    }\r\n\r\n    public static int getHouseCount() {\r\n        houseCount++;\r\n        return houseCount;\r\n    }\r\n\r\n    public static void setHouseCount(int houseCount) {\r\n        Window.houseCount = houseCount;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/Window.java b/src/main/java/org/example/Window.java
+--- a/src/main/java/org/example/Window.java	
++++ b/src/main/java/org/example/Window.java	
+@@ -110,8 +110,6 @@
+                 log.append(question.get(i) + "\r\n");
+                 i++;
+             } else {
+-//                log.selectAll();
+-//                log.replaceSelection("");
+                 App.test1();
+                 Window.log.append("Здание добавлено!\n" +
+                         "Чтобы добавить новое здание нажмите enter\n\n");
+Index: src/main/java/org/example/Images.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example;\r\n\r\nimport org.apache.poi.xwpf.usermodel.*;\r\nimport org.openxmlformats.schemas.wordprocessingml.x2006.main.CTTblWidth;\r\nimport org.openxmlformats.schemas.wordprocessingml.x2006.main.STTblWidth;\r\n\r\nimport java.math.BigInteger;\r\nimport java.util.ArrayList;\r\n\r\npublic class Images {\r\n    private final XWPFDocument document;\r\n    private final ArrayList<House> houses;\r\n\r\n    public Images(XWPFDocument document, ArrayList<House> houses) {\r\n        this.document = document;\r\n        this.houses = houses;\r\n    }\r\n\r\n    public void createImages() {\r\n        XWPFTable tableImage = document.createTable();\r\n        CTTblWidth widthRepr = tableImage.getCTTbl().getTblPr().addNewTblW();\r\n        widthRepr.setType(STTblWidth.DXA);\r\n        widthRepr.setW(BigInteger.valueOf(9500));\r\n        tableImage.removeTableAlignment();\r\n\r\n        XWPFTableRow tableRowOne = tableImage.getRow(0);\r\n            fillParagraph(tableRowOne.getCell(0).getParagraphArray(0), \"\");\r\n            fillParagraph(tableRowOne.addNewTableCell().getParagraphArray(0), \"\");\r\n            tableRowOne.getCell(0).getParagraphArray(0).setAlignment(ParagraphAlignment.CENTER);\r\n            tableRowOne.getCell(1).getParagraphArray(0).setAlignment(ParagraphAlignment.CENTER);\r\n\r\n        for (int i = 0; i < houses.size(); i=i+2) {\r\n            XWPFTableRow tableRow = tableImage.createRow();\r\n            House s = houses.get(i);\r\n            String text = \"Рисунок А.\" + (houses.indexOf(s)+1) + \". Общий вид сооружения по адресу: \" +\r\n                    s.getAddress() + \" (ID объекта \" + s.getIdd() + \")\";\r\n            fillParagraph(tableRow.getCell(0).getParagraphArray(0), text);\r\n            if (houses.indexOf(s)<houses.size()-1) {\r\n                s = houses.get(i + 1);\r\n                text = \"Рисунок А.\" + (houses.indexOf(s) + 1) + \". Общий вид сооружения по адресу: \" +\r\n                        s.getAddress() + \" (ID объекта \" + s.getIdd() + \")\";\r\n                fillParagraph(tableRow.getCell(1).getParagraphArray(0), text);\r\n            }\r\n            else fillParagraph(tableRow.getCell(1).getParagraphArray(0), \"\");\r\n\r\n            if (houses.indexOf(s)<houses.size()-1) {\r\n                tableRow = tableImage.createRow();\r\n                fillParagraph(tableRow.getCell(0).getParagraphArray(0), \"\");\r\n                fillParagraph(tableRow.getCell(1).getParagraphArray(0), \"\");\r\n            }\r\n        }\r\n\r\n        System.out.println(\"images written successully\");\r\n    }\r\n\r\n    private void fillParagraph(XWPFParagraph paragraph, String text) {\r\n        paragraph.setSpacingBefore(0);\r\n        paragraph.setSpacingAfter(0);\r\n        paragraph.setAlignment(ParagraphAlignment.CENTER);\r\n        XWPFRun run = paragraph.createRun();\r\n        run.setFontSize(12);\r\n        run.setFontFamily(\"Times New Roman\");\r\n        run.setText(text);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/Images.java b/src/main/java/org/example/Images.java
+--- a/src/main/java/org/example/Images.java	
++++ b/src/main/java/org/example/Images.java	
+@@ -33,12 +33,12 @@
+             XWPFTableRow tableRow = tableImage.createRow();
+             House s = houses.get(i);
+             String text = "Рисунок А." + (houses.indexOf(s)+1) + ". Общий вид сооружения по адресу: " +
+-                    s.getAddress() + " (ID объекта " + s.getIdd() + ")";
++                    s.getAddress() + " (ID объекта " + s.getId() + ")";
+             fillParagraph(tableRow.getCell(0).getParagraphArray(0), text);
+             if (houses.indexOf(s)<houses.size()-1) {
+                 s = houses.get(i + 1);
+                 text = "Рисунок А." + (houses.indexOf(s) + 1) + ". Общий вид сооружения по адресу: " +
+-                        s.getAddress() + " (ID объекта " + s.getIdd() + ")";
++                        s.getAddress() + " (ID объекта " + s.getId() + ")";
+                 fillParagraph(tableRow.getCell(1).getParagraphArray(0), text);
+             }
+             else fillParagraph(tableRow.getCell(1).getParagraphArray(0), "");
+Index: question.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Введите адрес объекта:\r\nВведите idd объекта:\r\nВведите длину объекта:\r\nВведите ширину объекта:\r\nВведите высоту объекта:\r\nВведите назначение:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/question.txt b/question.txt
+--- a/question.txt	
++++ b/question.txt	
+@@ -1,5 +1,5 @@
+ Введите адрес объекта:
+-Введите idd объекта:
++Введите id объекта:
+ Введите длину объекта:
+ Введите ширину объекта:
+ Введите высоту объекта:
+Index: src/main/java/org/example/Paragraph.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example;\r\n\r\nimport org.apache.poi.xwpf.usermodel.*;\r\n\r\nimport java.io.*;\r\nimport java.nio.file.Files;\r\nimport java.nio.file.Paths;\r\nimport java.util.ArrayList;\r\n\r\npublic class Paragraph {\r\n    private XWPFDocument document;\r\n    private FileOutputStream out;\r\n    private final ArrayList<String> conclusion = new ArrayList<>();\r\n\r\n    public void createParagraph(String text) {\r\n        // set font\r\n        XWPFParagraph p1 = document.createParagraph();\r\n\r\n        // Set Text to Bold and font size to 22 for first paragraph\r\n        XWPFRun r1 = p1.createRun();\r\n        r1.setBold(true);\r\n        r1.setItalic(true);\r\n        r1.setFontSize(13);\r\n        r1.setText(text);\r\n        r1.setFontFamily(\"Times New Roman\");\r\n\r\n        System.out.println(\"paragraph written successfully\");\r\n    }\r\n\r\n    public void createParagraph(String text, Boolean center) {\r\n        // set font\r\n        XWPFParagraph p1 = document.createParagraph();\r\n        if (center) p1.setAlignment(ParagraphAlignment.CENTER);\r\n\r\n        XWPFRun r1 = p1.createRun();\r\n        r1.setBold(true);\r\n        r1.setItalic(true);\r\n        r1.setFontSize(13);\r\n        r1.setText(text);\r\n        r1.setFontFamily(\"Times New Roman\");\r\n\r\n        System.out.println(\"paragraph written successfully\");\r\n    }\r\n\r\n    public void createParagraph(String text, Boolean center, Boolean addBreakPage) {\r\n        // set font\r\n        XWPFParagraph p1 = document.createParagraph();\r\n        if (center) p1.setAlignment(ParagraphAlignment.CENTER);\r\n        if (addBreakPage) p1.setPageBreak(true);\r\n\r\n        XWPFRun r1 = p1.createRun();\r\n\r\n        if (!addBreakPage) {\r\n            r1.addBreak();\r\n        }\r\n        if (!center) {\r\n            r1.addTab();\r\n        }\r\n        r1.setBold(true);\r\n        r1.setFontSize(13);\r\n        r1.setText(text);\r\n        r1.setFontFamily(\"Times New Roman\");\r\n\r\n        System.out.println(\"paragraph written successfully\");\r\n    }\r\n\r\n    public Paragraph(XWPFDocument document, String path) throws IOException {\r\n        this.document = document;\r\n        this.out = new FileOutputStream(path);\r\n    }\r\n\r\n    public void createConclusion(House house, String path) throws IOException {\r\n        Files.lines(Paths.get(path)).forEach(conclusion::add);\r\n        int line = 0;\r\n        XWPFParagraph paragraph = document.createParagraph();\r\n        paragraph.setAlignment(ParagraphAlignment.BOTH);\r\n        paragraph.createRun().addBreak();\r\n        paragraph.createRun().addTab();\r\n        if (house.getConditionn().equals(\"ограниченно-работоспособное\")) line = 4;\r\n        System.out.println(conclusion);\r\n        for (int i = 0; i < 4; i++) {\r\n            XWPFRun run = paragraph.createRun();\r\n            run.setFontSize(13);\r\n            run.setFontFamily(\"Times New Roman\");\r\n            run.setText(conclusion.get(line) + \" \");\r\n            if (i < 3) {\r\n                XWPFRun newrun = paragraph.createRun();\r\n                newrun.setFontSize(13);\r\n                newrun.setFontFamily(\"Times New Roman\");\r\n                newrun.setBold(true);\r\n                newrun.setItalic(true);\r\n                if (i == 0) {\r\n                    newrun.setText(String.valueOf(house.getAddress()));\r\n                } else if (i == 1) {\r\n                    newrun.setText(String.valueOf(house.getIdd()));\r\n                } else {\r\n                    newrun.setText(String.valueOf(house.getConditionn()));\r\n                }\r\n            }\r\n            line++;\r\n        }\r\n    }\r\n\r\n\r\n    public XWPFDocument getDocument() {\r\n        return document;\r\n    }\r\n\r\n    public void setDocument(XWPFDocument document) {\r\n        this.document = document;\r\n    }\r\n\r\n    public FileOutputStream getOut() {\r\n        return out;\r\n    }\r\n\r\n    public void setOut(FileOutputStream out) {\r\n        this.out = out;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/Paragraph.java b/src/main/java/org/example/Paragraph.java
+--- a/src/main/java/org/example/Paragraph.java	
++++ b/src/main/java/org/example/Paragraph.java	
+@@ -12,6 +12,7 @@
+     private FileOutputStream out;
+     private final ArrayList<String> conclusion = new ArrayList<>();
+ 
++
+     public void createParagraph(String text) {
+         // set font
+         XWPFParagraph p1 = document.createParagraph();
+@@ -92,7 +93,7 @@
+                 if (i == 0) {
+                     newrun.setText(String.valueOf(house.getAddress()));
+                 } else if (i == 1) {
+-                    newrun.setText(String.valueOf(house.getIdd()));
++                    newrun.setText(String.valueOf(house.getId()));
+                 } else {
+                     newrun.setText(String.valueOf(house.getConditionn()));
+                 }
+Index: src/main/java/org/example/House.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example;\r\n\r\n\r\nimport javax.persistence.*;\r\nimport java.text.DateFormat;\r\nimport java.text.SimpleDateFormat;\r\nimport java.util.ArrayList;\r\nimport java.util.Calendar;\r\n\r\n@Entity\r\n@Table(name=\"housess\", catalog = \"houses\")\r\npublic class House {\r\n    private String address;\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    private int id;\r\n    @Column\r\n    private String idd;\r\n    @Column\r\n    private double length;\r\n    @Column\r\n    private double width;\r\n\r\n    private double height;\r\n\r\n    private String appointment;\r\n\r\n    private String conditionn;\r\n\r\n    private boolean isWorking;\r\n\r\n    private final int type;\r\n\r\n    private int windows;\r\n\r\n    private String roof;\r\n\r\n\r\n    private String date;\r\n\r\n\r\n    public House() throws DocumentNotCreated {\r\n        setDate();\r\n        ArrayList<String> ans = Window.answer;\r\n        for (int i = 0; i < Window.answer.size(); i++) {\r\n            if (String.valueOf(ans.get(i)).contains(\",\")) {\r\n                ans.set(i, ans.get(i).replace(\",\", \".\"));\r\n            }\r\n        }\r\n        try {\r\n            address = Window.answer.get(0);\r\n            idd = Window.answer.get(1);\r\n            length = Double.parseDouble(Window.answer.get(2));\r\n            width = Double.parseDouble(Window.answer.get(3));\r\n            height = Double.parseDouble(Window.answer.get(4));\r\n            appointment = Window.answer.get(5);\r\n            roof = Window.answer.get(6);\r\n            if (Integer.parseInt(Window.answer.get(7)) == 1) {\r\n                conditionn = \"работоспособное\";\r\n                isWorking = true;\r\n            } else if (Integer.parseInt(Window.answer.get(7)) == 2) {\r\n                conditionn = \"ограниченно-работоспособное\";\r\n                isWorking = false;\r\n            }\r\n            type = Integer.parseInt(Window.answer.get(8));\r\n            windows = Integer.parseInt(Window.answer.get(9));\r\n        }\r\n        catch (Exception e) {\r\n            throw new DocumentNotCreated(e.getMessage());\r\n        }\r\n    }\r\n\r\n    public String getAddress() {\r\n        return address;\r\n    }\r\n\r\n    public void setAddress(String address) {\r\n        this.address = address;\r\n    }\r\n\r\n\r\n    public double getLength() {\r\n        return length;\r\n    }\r\n\r\n    public void setLength(double length) {\r\n        this.length = length;\r\n    }\r\n\r\n    public double getWidth() {\r\n        return width;\r\n    }\r\n\r\n    public void setWidth(double width) {\r\n        this.width = width;\r\n    }\r\n\r\n    public double getHeight() {\r\n        return height;\r\n    }\r\n\r\n    public void setHeight(double height) {\r\n        this.height = height;\r\n    }\r\n\r\n    public String getAppointment() {\r\n        return appointment;\r\n    }\r\n\r\n    public void setAppointment(String appointment) {\r\n        this.appointment = appointment;\r\n    }\r\n\r\n    public String getConditionn() {\r\n        return conditionn;\r\n    }\r\n\r\n    public void setConditionn(String conditionn) {\r\n        this.conditionn = conditionn;\r\n    }\r\n\r\n    public String getDate() {\r\n        return date;\r\n    }\r\n\r\n    public void setDate() {\r\n        DateFormat df = new SimpleDateFormat(\"yyyy\");\r\n        Calendar calendar = Calendar.getInstance();\r\n        String[] monthNames = {\"Январь\", \"Февраль\", \"Март\", \"Апрель\", \"Май\", \"Июнь\", \"Июль\", \"Август\", \"Сентябрь\", \"Октябрь\", \"Ноябрь\", \"Декабрь\"};\r\n        String month = monthNames[calendar.get(Calendar.MONTH)];\r\n        date = month + \" \" + df.format(calendar.getTime()) + \" г.\";\r\n    }\r\n\r\n    public String getType() {\r\n        if (isWorking) {\r\n            return \"/\" + type + \".yaml\";\r\n        }\r\n        else return \"/\" + type + \"D.yaml\";\r\n    }\r\n    public int getType(int i) {\r\n        return type;\r\n    }\r\n\r\n    public String getRoof() throws DocumentNotCreated {\r\n        if (roof.equals(\"1\")) {\r\n            return \"Односкатная\";\r\n        }\r\n        if (roof.equals(\"2\")) {\r\n            return \"Двускатная\";\r\n        }\r\n        else throw new DocumentNotCreated(\"Не правильный тип крыши\");\r\n    }\r\n\r\n    public void setRoof(String roof) {\r\n        this.roof = roof;\r\n    }\r\n\r\n    public String getWindows() throws DocumentNotCreated {\r\n        if (windows == 1) {\r\n            return \"Отсутствует\";\r\n        }\r\n        if (windows == 2) {\r\n            return \"Пвх двухкамерные окна, с стеклянным заполнением\";\r\n        }\r\n        if (windows == 3) {\r\n            return \"Деревянные стеклопакеты\";\r\n        }\r\n        else throw new DocumentNotCreated(\"Не правильный тип проема\");\r\n    }\r\n\r\n    public void setWindows(int windows) {\r\n        this.windows = windows;\r\n    }\r\n\r\n    public boolean isWorking() {\r\n        return isWorking;\r\n    }\r\n\r\n    public void setWorking(boolean working) {\r\n        isWorking = working;\r\n    }\r\n\r\n    public static class DocumentNotCreated extends Exception {\r\n\r\n        public DocumentNotCreated (String message) {\r\n            super(message);\r\n        }\r\n    }\r\n\r\n    public String getIdd() {\r\n        return idd;\r\n    }\r\n\r\n    public void setIdd(String idd) {\r\n        this.idd = idd;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/House.java b/src/main/java/org/example/House.java
+--- a/src/main/java/org/example/House.java	
++++ b/src/main/java/org/example/House.java	
+@@ -1,6 +1,7 @@
+ package org.example;
+ 
+ 
++
+ import javax.persistence.*;
+ import java.text.DateFormat;
+ import java.text.SimpleDateFormat;
+@@ -8,17 +9,17 @@
+ import java.util.Calendar;
+ 
+ @Entity
+-@Table(name="housess", catalog = "houses")
++@Table(name="housess", catalog = "tablecreatedb")
+ public class House {
++    @Id
++    @GeneratedValue()
++    private Long idDB;
+     private String address;
+-    @Id
+-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+-    private int id;
+-    @Column
+-    private String idd;
+-    @Column
++
++    private String id;
++
+     private double length;
+-    @Column
++
+     private double width;
+ 
+     private double height;
+@@ -49,7 +50,7 @@
+         }
+         try {
+             address = Window.answer.get(0);
+-            idd = Window.answer.get(1);
++            id = Window.answer.get(1);
+             length = Double.parseDouble(Window.answer.get(2));
+             width = Double.parseDouble(Window.answer.get(3));
+             height = Double.parseDouble(Window.answer.get(4));
+@@ -187,11 +188,11 @@
+         }
+     }
+ 
+-    public String getIdd() {
+-        return idd;
++    public String getId() {
++        return id;
+     }
+ 
+-    public void setIdd(String idd) {
+-        this.idd = idd;
++    public void setId(String id) {
++        this.id = id;
+     }
+ }

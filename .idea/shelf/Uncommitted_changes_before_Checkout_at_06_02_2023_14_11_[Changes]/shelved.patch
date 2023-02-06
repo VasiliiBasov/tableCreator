@@ -1,0 +1,197 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ArtifactsWorkspaceSettings\">\r\n    <artifacts-to-build>\r\n      <artifact name=\"ProgramTableCreator:jar\" />\r\n    </artifacts-to-build>\r\n  </component>\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"9bbb54c9-2bd0-46a5-b20b-cfa95ea81176\" name=\"Changes\" comment=\"Work all 1\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/dataSources.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/DB.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/artifacts/ProgramTableCreator_jar.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/artifacts/ProgramTableCreator_jar.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Tables.docx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Tables.docx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/question.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/question.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/App.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/App.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/FileConclusion.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/FileConclusion.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/House.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/House.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/Images.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/Images.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/Paragraph.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/Paragraph.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/Table.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/Tables.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"package.json\" />\r\n        <option value=\"Interface\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"9ff4c74ec98253316f090944b92e0dfd2cbf6df0\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"RESET_MODE\" value=\"MIXED\" />\r\n  </component>\r\n  <component name=\"JpbToolWindowState\">\r\n    <option name=\"isToolWindowVisible\" value=\"false\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2EcFMdO1qJviEROlPvwrWaeLxI1\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"autoscrollFromSource\" value=\"true\" />\r\n    <option name=\"autoscrollToSource\" value=\"true\" />\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/vasek/IdeaProjects/ProgramTableCreator&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;,\r\n    &quot;spring.configuration.checksum&quot;: &quot;c8b90fb793f20414ff640b4df107d024&quot;\r\n  },\r\n  &quot;keyToStringList&quot;: {\r\n    &quot;ChangesTree.GroupingKeys&quot;: [\r\n      &quot;directory&quot;,\r\n      &quot;module&quot;\r\n    ],\r\n    &quot;DatabaseDriversLRU&quot;: [\r\n      &quot;mysql&quot;\r\n    ]\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateClassDialog.RecentsKey\">\r\n      <recent name=\"org.example\" />\r\n    </key>\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\vasek\\IdeaProjects\\ProgramTableCreator\" />\r\n      <recent name=\"C:\\Users\\vasek\\IdeaProjects\\ProgramTableCreator\\src\\main\\java\\org\\example\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\vasek\\IdeaProjects\\ProgramTableCreator\" />\r\n      <recent name=\"C:\\Users\\vasek\\IdeaProjects\\ProgramTableCreator\\src\\main\\resources\" />\r\n      <recent name=\"C:\\Users\\vasek\\IdeaProjects\\ProgramTableCreator\\src\\main\\java\\org\\example\" />\r\n      <recent name=\"C:\\Users\\vasek\\IdeaProjects\\ProgramTableCreator\\src\\main\\java\" />\r\n      <recent name=\"C:\\Users\\vasek\\IdeaProjects\\ProgramTableCreator\\src\\main\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Window\">\r\n    <configuration name=\"App\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"org.example.App\" />\r\n      <module name=\"ProgramTableCreator\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"org.example.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Window\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" value=\"$PROJECT_DIR$/../../../../Program Files/Java/jdk1.8.0_341\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"true\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"org.example.Window\" />\r\n      <module name=\"ProgramTableCreator\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"org.example.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Window\" />\r\n        <item itemvalue=\"Application.App\" />\r\n        <item itemvalue=\"Application.App\" />\r\n        <item itemvalue=\"Application.App\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"9bbb54c9-2bd0-46a5-b20b-cfa95ea81176\" name=\"Changes\" comment=\"\" />\r\n      <created>1662886921486</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1662886921486</updated>\r\n      <workItem from=\"1662886923057\" duration=\"3871000\" />\r\n      <workItem from=\"1662891130930\" duration=\"14119000\" />\r\n      <workItem from=\"1663161125461\" duration=\"8679000\" />\r\n      <workItem from=\"1663245928885\" duration=\"5409000\" />\r\n      <workItem from=\"1663578094156\" duration=\"35917000\" />\r\n      <workItem from=\"1663683050263\" duration=\"18251000\" />\r\n      <workItem from=\"1663708282816\" duration=\"349000\" />\r\n      <workItem from=\"1663708648258\" duration=\"3941000\" />\r\n      <workItem from=\"1663713134678\" duration=\"332000\" />\r\n      <workItem from=\"1663713481965\" duration=\"376000\" />\r\n      <workItem from=\"1663713886837\" duration=\"615000\" />\r\n      <workItem from=\"1663746702928\" duration=\"9289000\" />\r\n      <workItem from=\"1663787348279\" duration=\"1489000\" />\r\n      <workItem from=\"1664044840155\" duration=\"30542000\" />\r\n      <workItem from=\"1664098595944\" duration=\"10328000\" />\r\n      <workItem from=\"1664194567937\" duration=\"452000\" />\r\n      <workItem from=\"1664221931318\" duration=\"9090000\" />\r\n      <workItem from=\"1664288466864\" duration=\"1964000\" />\r\n      <workItem from=\"1664518434494\" duration=\"3333000\" />\r\n      <workItem from=\"1665475441249\" duration=\"13000\" />\r\n      <workItem from=\"1665658268523\" duration=\"8047000\" />\r\n      <workItem from=\"1665905751359\" duration=\"670000\" />\r\n      <workItem from=\"1665956019623\" duration=\"535000\" />\r\n      <workItem from=\"1666179268884\" duration=\"635000\" />\r\n      <workItem from=\"1666259444277\" duration=\"9758000\" />\r\n      <workItem from=\"1666289658466\" duration=\"6373000\" />\r\n      <workItem from=\"1667369845517\" duration=\"1460000\" />\r\n      <workItem from=\"1667811219739\" duration=\"3644000\" />\r\n      <workItem from=\"1667901798135\" duration=\"3720000\" />\r\n      <workItem from=\"1669038638942\" duration=\"2808000\" />\r\n      <workItem from=\"1671352695755\" duration=\"91000\" />\r\n      <workItem from=\"1671524695733\" duration=\"3809000\" />\r\n      <workItem from=\"1672666129398\" duration=\"2768000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Таблицы и параграфы создаются\">\r\n      <created>1663655768753</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1663655768753</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Work with console only\">\r\n      <created>1663663568326</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1663663568326</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Work with console only\">\r\n      <created>1663668341856</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1663668341856</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Work with console only\">\r\n      <created>1663765003640</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1663765003640</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Work all\">\r\n      <created>1664073916967</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1664073916967</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Work all\">\r\n      <created>1664229484964</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1664229484964</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Work all\">\r\n      <created>1664230049764</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1664230049764</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Work all\">\r\n      <created>1664231025587</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1664231025587</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Work all\">\r\n      <created>1664290433335</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1664290433335</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Work all\">\r\n      <created>1665667006048</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1665667006048</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Work all\">\r\n      <created>1666272993363</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1666272993363</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"Work all 1\">\r\n      <created>1666825183909</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1666825183909</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"13\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"newbranch\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Таблицы и параграфы создаются\" />\r\n    <MESSAGE value=\"Work with console only\" />\r\n    <MESSAGE value=\"Work all\" />\r\n    <MESSAGE value=\"Have problem with line break\" />\r\n    <MESSAGE value=\"Work all 1\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Work all 1\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -9,21 +9,17 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="9bbb54c9-2bd0-46a5-b20b-cfa95ea81176" name="Changes" comment="Work all 1">
+-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DB.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ProgramTableCreator_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/ProgramTableCreator_jar.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++    <list default="true" id="9bbb54c9-2bd0-46a5-b20b-cfa95ea81176" name="Changes" comment="BD was connect">
++      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/Tables.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Tables.docx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/question.txt" beforeDir="false" afterPath="$PROJECT_DIR$/question.txt" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FileConclusion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FileConclusion.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DB.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/House.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Images.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Images.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Paragraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Paragraph.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Tables.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Window.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -42,11 +38,14 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="9ff4c74ec98253316f090944b92e0dfd2cbf6df0" />
++        <entry key="$PROJECT_DIR$" value="newbranch" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+     <option name="RESET_MODE" value="MIXED" />
++  </component>
++  <component name="HighlightingSettingsPerFile">
++    <setting file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/8.0.30/mysql-connector-java-8.0.30.jar!/com/mysql/cj/jdbc/ClientPreparedStatement.class" root0="SKIP_INSPECTION" />
+   </component>
+   <component name="JpbToolWindowState">
+     <option name="isToolWindowVisible" value="false" />
+@@ -66,15 +65,19 @@
+   &quot;keyToString&quot;: {
+     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+     &quot;last_opened_file_path&quot;: &quot;C:/Users/vasek/IdeaProjects/ProgramTableCreator&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+     &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;,
+-    &quot;spring.configuration.checksum&quot;: &quot;c8b90fb793f20414ff640b4df107d024&quot;
++    &quot;spring.configuration.checksum&quot;: &quot;c8b90fb793f20414ff640b4df107d024&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   },
+   &quot;keyToStringList&quot;: {
+     &quot;ChangesTree.GroupingKeys&quot;: [
+@@ -135,8 +138,6 @@
+       <list>
+         <item itemvalue="Application.Window" />
+         <item itemvalue="Application.App" />
+-        <item itemvalue="Application.App" />
+-        <item itemvalue="Application.App" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -180,7 +181,29 @@
+       <workItem from="1669038638942" duration="2808000" />
+       <workItem from="1671352695755" duration="91000" />
+       <workItem from="1671524695733" duration="3809000" />
+-      <workItem from="1672666129398" duration="2768000" />
++      <workItem from="1672666129398" duration="2974000" />
++      <workItem from="1672672489111" duration="498000" />
++      <workItem from="1672735194889" duration="1031000" />
++      <workItem from="1672736310773" duration="2003000" />
++      <workItem from="1672738899337" duration="35000" />
++      <workItem from="1672738955089" duration="596000" />
++      <workItem from="1672740700812" duration="931000" />
++      <workItem from="1672741657277" duration="2434000" />
++      <workItem from="1672908770068" duration="2576000" />
++      <workItem from="1672924209651" duration="1039000" />
++      <workItem from="1672936659173" duration="3761000" />
++      <workItem from="1673185106435" duration="2370000" />
++      <workItem from="1673264369377" duration="1987000" />
++      <workItem from="1673273632686" duration="1136000" />
++      <workItem from="1673338495339" duration="1434000" />
++      <workItem from="1674072167613" duration="618000" />
++      <workItem from="1674200962275" duration="21000" />
++      <workItem from="1674201015503" duration="10000" />
++      <workItem from="1674574329010" duration="625000" />
++      <workItem from="1674839616766" duration="132000" />
++      <workItem from="1674846810801" duration="284000" />
++      <workItem from="1675589093787" duration="1339000" />
++      <workItem from="1675680889387" duration="491000" />
+     </task>
+     <task id="LOCAL-00001" summary="Таблицы и параграфы создаются">
+       <created>1663655768753</created>
+@@ -266,7 +289,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1666825183909</updated>
+     </task>
+-    <option name="localTasksCounter" value="13" />
++    <task id="LOCAL-00013" summary="BD was connect">
++      <created>1672671027607</created>
++      <option name="number" value="00013" />
++      <option name="presentableId" value="LOCAL-00013" />
++      <option name="project" value="LOCAL" />
++      <updated>1672671027607</updated>
++    </task>
++    <option name="localTasksCounter" value="14" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -283,7 +313,7 @@
+                   <entry key="branch">
+                     <value>
+                       <list>
+-                        <option value="newbranch" />
++                        <option value="with_BD" />
+                       </list>
+                     </value>
+                   </entry>
+@@ -301,6 +331,7 @@
+     <MESSAGE value="Work all" />
+     <MESSAGE value="Have problem with line break" />
+     <MESSAGE value="Work all 1" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Work all 1" />
++    <MESSAGE value="BD was connect" />
++    <option name="LAST_COMMIT_MESSAGE" value="BD was connect" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/org/example/DB.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example;\r\n\r\nimport org.hibernate.Session;\r\nimport org.hibernate.SessionFactory;\r\nimport org.hibernate.Transaction;\r\nimport org.hibernate.cfg.Configuration;\r\nimport org.hibernate.cfg.Environment;\r\n\r\nimport java.util.Properties;\r\n\r\npublic class DB {\r\n    private static SessionFactory sessionFactory;\r\n\r\n    public static void init() {\r\n        Properties properties = new Properties();\r\n        properties.put(Environment.DRIVER, \"com.mysql.cj.jdbc.Driver\");\r\n        properties.put(Environment.URL, \"jdbc:mysql://localhost:3306/houses\");\r\n        properties.put(Environment.USER, \"root\");\r\n        properties.put(Environment.PASS, \"cekret\");\r\n        properties.put(Environment.DIALECT, \"org.hibernate.dialect.MySQLDialect\");\r\n        properties.put(Environment.HBM2DDL_AUTO, \"create\");\r\n        properties.put(Environment.SHOW_SQL, \"true\");\r\n\r\n        sessionFactory = new Configuration()\r\n                .setProperties(properties)\r\n                .addAnnotatedClass(org.example.House.class)\r\n                .buildSessionFactory();\r\n    }\r\n    public static void addHouse(House house ) {\r\n        try (Session session = sessionFactory.openSession()) {\r\n            Transaction transaction = session.beginTransaction();\r\n            session.save(house);\r\n            transaction.commit();\r\n        }\r\n    }\r\n    public static void getHouse(House house) {\r\n        try (Session session = sessionFactory.openSession()) {\r\n            Transaction transaction = session.beginTransaction();\r\n            session.get(String.valueOf(1), House.class);\r\n        }\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/org/example/DB.java b/src/main/java/org/example/DB.java
+--- a/src/main/java/org/example/DB.java	
++++ b/src/main/java/org/example/DB.java	
+@@ -14,12 +14,12 @@
+     public static void init() {
+         Properties properties = new Properties();
+         properties.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
+-        properties.put(Environment.URL, "jdbc:mysql://localhost:3306/houses");
+-        properties.put(Environment.USER, "root");
+-        properties.put(Environment.PASS, "cekret");
++        properties.put(Environment.URL, "jdbc:mysql://db4free.net:3306/tablecreatedb");
++        properties.put(Environment.USER, "vasekbasov");
++        properties.put(Environment.PASS, "cekretik123");
+         properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect");
+-        properties.put(Environment.HBM2DDL_AUTO, "create");
+         properties.put(Environment.SHOW_SQL, "true");
++        properties.put(Environment.HBM2DDL_AUTO, "update");
+ 
+         sessionFactory = new Configuration()
+                 .setProperties(properties)
+Index: .idea/dataSources.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DataSourceManagerImpl\" format=\"xml\" multifile-model=\"true\">\r\n    <data-source source=\"LOCAL\" name=\"TableCreatorDB\" uuid=\"6527b087-bfa5-453b-ac19-d42882f9d9a1\">\r\n      <driver-ref>mysql.8</driver-ref>\r\n      <synchronize>true</synchronize>\r\n      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>\r\n      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>\r\n      <working-dir>$ProjectFileDir$</working-dir>\r\n    </data-source>\r\n  </component>\r\n</project>
+===================================================================
+diff --git a/.idea/dataSources.xml b/.idea/dataSources.xml
+--- a/.idea/dataSources.xml	
++++ b/.idea/dataSources.xml	
+@@ -8,5 +8,12 @@
+       <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
+       <working-dir>$ProjectFileDir$</working-dir>
+     </data-source>
++    <data-source source="LOCAL" name="@db4free.net" uuid="837df020-7f42-48ea-9d78-30b5d7a2de4e">
++      <driver-ref>mysql.8</driver-ref>
++      <synchronize>true</synchronize>
++      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
++      <jdbc-url>jdbc:mysql://db4free.net:3306</jdbc-url>
++      <working-dir>$ProjectFileDir$</working-dir>
++    </data-source>
+   </component>
+ </project>
+\ No newline at end of file
