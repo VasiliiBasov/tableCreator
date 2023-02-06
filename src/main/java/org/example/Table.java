@@ -240,7 +240,6 @@ public class Table {
                         String textForLine = stringsOnNewLines[i];
                         if (i == stringsOnNewLines.length - 1) {
                             if (textForLine.contains("Техническое состояние – condition")) {
-                                System.out.println("cond");
                                 XWPFRun xwpfRun1 = paragraph.createRun();
                                 String cond = "Техническое состояние – ";
                                 xwpfRun.setText(cond, 0);
@@ -373,7 +372,6 @@ public class Table {
                         String textForLine = stringsOnNewLines[i];
                         if (i == stringsOnNewLines.length - 1) {
                             if (textForLine.contains("Техническое состояние – condition")) {
-                                System.out.println("cond");
                                 XWPFRun xwpfRun1 = paragraph.createRun();
                                 String cond = "Техническое состояние – ";
                                 xwpfRun.setText(cond, 0);

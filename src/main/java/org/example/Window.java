@@ -50,7 +50,6 @@ public class Window extends JFrame implements ActionListener {
         fieldInput.addActionListener(this);
         add(fieldInput, BorderLayout.SOUTH);
 
-        //private final BufferedReader in;
 
 
         setVisible(true);
@@ -110,10 +109,9 @@ public class Window extends JFrame implements ActionListener {
                 log.append(question.get(i) + "\r\n");
                 i++;
             } else {
-//                log.selectAll();
-//                log.replaceSelection("");
                 App.test1();
                 Window.log.append("Здание добавлено!\n" +
+                        "чтобы создать документ введите finish\n" +
                         "Чтобы добавить новое здание нажмите enter\n\n");
                 isNew = true;
 

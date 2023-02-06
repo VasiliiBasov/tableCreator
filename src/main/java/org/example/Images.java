@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class Images {
     private XWPFDocument document;
-    //private XWPFTableRow tableRow;
     private ArrayList<House> houses = new ArrayList<>();
     private static int imageId = 1;
 

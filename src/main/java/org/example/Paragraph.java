@@ -13,10 +13,8 @@ public class Paragraph {
     private final ArrayList<String> conclusion = new ArrayList<>();
 
     public void createParagraph(String text) throws IOException {
-        // set font
         XWPFParagraph p1 = document.createParagraph();
 
-        // Set Text to Bold and font size to 22 for first paragraph
         XWPFRun r1 = p1.createRun();
         r1.setBold(true);
         r1.setItalic(true);
@@ -43,7 +41,6 @@ public class Paragraph {
     }
 
     public void createParagraph(String text, Boolean center, Boolean addBreakPage) throws IOException {
-        // set font
         XWPFParagraph p1 = document.createParagraph();
         if (center) p1.setAlignment(ParagraphAlignment.CENTER);
         if (addBreakPage) p1.setPageBreak(true);
@@ -77,7 +74,6 @@ public class Paragraph {
         paragraph.createRun().addBreak();
         paragraph.createRun().addTab();
         if (house.getCondition().equals("ограниченно-работоспособное")) line = 4;
-        System.out.println(conclusion);
         for (int i = 0; i < 4; i++) {
             XWPFRun run = paragraph.createRun();
             run.setFontSize(13);
